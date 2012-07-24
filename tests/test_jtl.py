@@ -25,7 +25,8 @@ class JTLTestCase(unittest.TestCase):
     def test_http_samples(self):
         tests_dir = os.path.dirname(os.path.abspath(__file__))
         sample_filename = os.path.join(tests_dir, 'samples/1.jtl')
-        http_samples = list(jtl.Parser(sample_filename).http_samples())
+        parser = jtl.create_parser(sample_filename)
+        http_samples = list(parser.http_samples())
         self.assertEqual(len(http_samples), 80)
         test_sample = jtl.Sample(
                 by='61870', de=None, dt='text', ec=None, hn=None, it=None,
