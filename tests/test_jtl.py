@@ -56,23 +56,23 @@ class JTLTestCase(unittest.TestCase):
         http_samples = list(parser.http_samples())
         self.assertEqual(len(http_samples), 80)
         test_sample = jtl.Sample(
-                by='62552', de=None, dt='text', ec=None, hn=None, it=None,
-                lb='/', lt='693', na=None, ng=None, rc='200', rm='OK',
-                s='true', sc=None, t='1099', tn='Thread Group 1-1',
-                ts='1342987956100')
+                by='63296', de=None, dt='text', ec=None, hn=None, it=None,
+                lb='"Home" page', lt='803', na=None, ng=None, rc='200',
+                rm='OK', s='true', sc=None, t='1302', tn='Thread Group 1-1',
+                ts='1343254295474')
         self.assertEqual(http_samples[0], test_sample)
         test_sample = jtl.Sample(
-                by='2976', de=None, dt='text', ec=None, hn=None, it=None,
-                lb='/some_page', lt='497', na=None, ng=None, rc='404',
-                rm='Not Found', s='false', sc=None, t='497',
-                tn='Thread Group 1-1', ts='1342987983537')
+                by='2977', de=None, dt='text', ec=None, hn=None, it=None,
+                lb='fourth sample, last sample', lt='130', na=None, ng=None,
+                rc='404', rm='Not Found', s='false', sc=None, t='130',
+                tn='Thread Group 1-2', ts='1343254325503')
         self.assertEqual(http_samples[79], test_sample)
         test_sample = jtl.Sample(
-                by='21476', de=None, dt='text', ec=None, hn=None, it=None,
-                lb='/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA', lt='751',
-                na=None, ng=None, rc='200', rm='OK', s='true', sc=None,
-                t='1074', tn='Thread Group 1-1', ts='1342987969778')
-        self.assertEqual(http_samples[38], test_sample)
+                by='18731', de=None, dt='text', ec=None, hn=None, it=None,
+                lb='/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4', lt='383', na=None,
+                ng=None, rc='200', rm='OK', s='true', sc=None, t='1077',
+                tn='Thread Group 1-1', ts='1343254311466')
+        self.assertEqual(http_samples[42], test_sample)
 
 
 if __name__ == '__main__':
