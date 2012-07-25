@@ -72,7 +72,7 @@ class Sample(namedtuple('Sample', 'by, de, dt, ec, hn, it, lb, lt, na, '
 
 
 class BaseParser(object):
-    """The base class that implements JTL file parsing functionality.
+    """The base class for JTL parsers.
 
     """
     def http_samples(self):
@@ -97,6 +97,7 @@ class XMLParser(BaseParser):
         self.context = etree.iterparse(source, events=('start', 'end'))
         self.context = iter(self.context)
         event, self.root = self.context.next()
+        self.version = self.root.get('version')
 
     def http_samples(self):
         """Generator method which yields HTTP samples from the results.
