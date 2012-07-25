@@ -18,6 +18,29 @@
 
 from collections import namedtuple
 from xml.etree import cElementTree as etree
+import csv
+
+
+# Translation table for CSV fieldnames
+CSV_FIELDNAMES = {
+    'by': 'bytes',
+    'de': None,
+    'dt': 'dataType',
+    'ec': None,
+    'hn': None,
+    'it': None,
+    'lb': 'label',
+    'lt': 'Latency',
+    'na': None,
+    'ng': None,
+    'rc': 'responseCode',
+    'rm': 'responseMessage',
+    's': 'success',
+    'sc': None,
+    't': 'elapsed',
+    'tn': 'threadName',
+    'ts': 'timeStamp',
+}
 
 
 class Sample(namedtuple('Sample', 'by, de, dt, ec, hn, it, lb, lt, na, '
@@ -81,10 +104,35 @@ class XMLParser(BaseParser):
         """
         for event, elem in self.context:
             if event == 'end' and elem.tag == 'httpSample':
-                attr_dict = dict((attr, elem.get(attr)) for attr in
-                        Sample._fields)
+                attr_dict = dict((attr, elem.get(attr))
+                        for attr in Sample._fields)
                 yield Sample(**attr_dict)
             self.root.clear()
+
+
+class CSVParser(BaseParser):
+    """The class that implements JTL (CSV) file parsing functionality.
+
+    """
+    def __init__(self, source):
+        """Initialize the class.
+
+        Arguments:
+        source -- name of the file containing the results data
+
+        """
+        self.source = source
+
+    def http_samples(self):
+        """Generator method which yeilds HTTP samples from the results.
+
+        """
+        with open(self.source, 'rb') as fp:
+            reader = csv.DictReader(fp)
+            for row in reader:
+                attr_dict = dict((attr, row.get(CSV_FIELDNAMES[attr]))
+                        for attr in Sample._fields)
+                yield Sample(**attr_dict)
 
 
 def create_parser(source):
@@ -99,5 +147,5 @@ def create_parser(source):
         if fp.readline().startswith('<?xml'):
             return XMLParser(source)
         else:
-            raise NotImplementedError
+            return CSVParser(source)
 
