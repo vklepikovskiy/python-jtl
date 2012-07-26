@@ -19,53 +19,30 @@
 from collections import namedtuple
 from xml.etree import cElementTree as etree
 import csv
-
-
-# Translation table for CSV fieldnames
-CSV_FIELDNAMES = {
-    'by': 'bytes',
-    'de': None,
-    'dt': 'dataType',
-    'ec': None,
-    'hn': None,
-    'it': None,
-    'lb': 'label',
-    'lt': 'Latency',
-    'na': None,
-    'ng': None,
-    'rc': 'responseCode',
-    'rm': 'responseMessage',
-    's': 'success',
-    'sc': None,
-    't': 'elapsed',
-    'tn': 'threadName',
-    'ts': 'timeStamp',
-}
+from datetime import timedelta, datetime
 
 
 class Sample(namedtuple('Sample', 'by, de, dt, ec, hn, it, lb, lt, na, '
-                        'ng, rc, rm, s, sc, t, tn, ts')):
+                        'ng, rc, rm, su, sc, ti, tn, ts')):
     """The class that stores one sample from the results data in named
     tuple. It has the following fields:
     by -- bytes received
     de -- data encoding
     dt -- data type
-    ec -- error count (0 or 1, unless multiple samples are aggregated)
+    ec -- error count
     hn -- hostname where the sample was generated
-    it -- idle time = time not spent sampling (milliseconds) (generally
-          0)
+    it -- idle time
     lb -- label
-    lt -- latency = time to initial response (milliseconds) - not all
-          samplers support this
+    lt -- latency time
     na -- number of active threads for all thread groups
     ng -- number of active threads in this group
-    rc -- response code (e.g. 200)
-    rm -- response message (e.g. OK)
-    s  -- success flag (true/false)
-    sc -- sample count (1, unless multiple samples are aggregated)
-    t  -- elapsed time (milliseconds)
+    rc -- response code
+    rm -- response message
+    sc -- sample count
+    su -- success flag
+    ti -- elapsed time
     tn -- thread name
-    ts -- timestamp (milliseconds since midnight Jan 1, 1970 UTC)
+    ts -- timestamp
 
     """
     pass
@@ -105,9 +82,25 @@ class XMLParser(BaseParser):
         """
         for event, elem in self.context:
             if event == 'end' and elem.tag == 'httpSample':
-                attr_dict = dict((attr, elem.get(attr))
-                        for attr in Sample._fields)
-                yield Sample(**attr_dict)
+                yield Sample(
+                        by=int(elem.get('by', 0)),
+                        de=elem.get('de', ''),
+                        dt=elem.get('dt', ''),
+                        ec=int(elem.get('ec', 0)),
+                        hn=elem.get('hn', ''),
+                        it=timedelta(milliseconds=int(elem.get('it', 0))),
+                        lb=elem.get('lb', ''),
+                        lt=timedelta(milliseconds=int(elem.get('lt', 0))),
+                        na=int(elem.get('na', 0)),
+                        ng=int(elem.get('ng', 0)),
+                        rc=elem.get('rc', ''),
+                        rm=elem.get('rm', ''),
+                        sc=int(elem.get('sc', 0)),
+                        su=bool(elem.get('s') == 'true'),
+                        ti=timedelta(milliseconds=int(elem.get('t', 0))),
+                        tn=elem.get('tn', ''),
+                        ts=datetime.utcfromtimestamp(
+                                int(elem.get('ts', 0)) / 1000.0))
             self.root.clear()
 
 
@@ -131,9 +124,25 @@ class CSVParser(BaseParser):
         with open(self.source, 'rb') as fp:
             reader = csv.DictReader(fp)
             for row in reader:
-                attr_dict = dict((attr, row.get(CSV_FIELDNAMES[attr]))
-                        for attr in Sample._fields)
-                yield Sample(**attr_dict)
+                yield Sample(
+                        by=int(row.get('bytes', 0)),
+                        de='',
+                        dt=row.get('dataType', ''),
+                        ec=0,
+                        hn='',
+                        it=timedelta(0),
+                        lb=row.get('label', ''),
+                        lt=timedelta(milliseconds=int(row.get('Latency', 0))),
+                        na=0,
+                        ng=0,
+                        rc=row.get('responseCode', ''),
+                        rm=row.get('responseMessage', ''),
+                        sc=0,
+                        su=bool(row.get('success') == 'true'),
+                        ti=timedelta(milliseconds=int(row.get('elapsed', 0))),
+                        tn=row.get('threadName', ''),
+                        ts=datetime.utcfromtimestamp(
+                                int(row.get('timeStamp', 0)) / 1000.0))
 
 
 def create_parser(source):
