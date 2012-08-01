@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="1863" lt="1080" ts="1343511262595" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66580" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1904" lt="982" ts="1343511263091" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66368" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1941" lt="1209" ts="1343511264488" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19267" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1641" lt="979" ts="1343511265009" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19274" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1592" lt="1148" ts="1343511266431" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21496" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="224" lt="224" ts="1343511268025" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2976" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1641" lt="1104" ts="1343511266652" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21533" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="211" lt="211" ts="1343511268296" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1143" lt="677" ts="1343511268254" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66569" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1052" lt="616" ts="1343511268512" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66667" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1345" lt="535" ts="1343511269408" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19344" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1218" lt="546" ts="1343511269576" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19266" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1181" lt="766" ts="1343511270755" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21491" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1144" lt="877" ts="1343511270799" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21537" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="121" lt="121" ts="1343511271939" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="136" lt="136" ts="1343511271945" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="645" lt="440" ts="1343511272064" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66657" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="720" lt="493" ts="1343511272085" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66544" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1339" lt="648" ts="1343511272720" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19281" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1379" lt="648" ts="1343511272814" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19269" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1164" lt="878" ts="1343511274061" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21518" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1201" lt="893" ts="1343511274196" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21531" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="177" lt="177" ts="1343511275227" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="247" lt="247" ts="1343511275399" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="853" lt="616" ts="1343511275407" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66550" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="727" lt="538" ts="1343511275650" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66508" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1157" lt="560" ts="1343511276274" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19265" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1444" lt="491" ts="1343511276385" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19458" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1198" lt="898" ts="1343511277433" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21529" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="178" lt="178" ts="1343511278633" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2976" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1090" lt="757" ts="1343511277831" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21515" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="201" lt="201" ts="1343511278923" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="707" lt="573" ts="1343511278813" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66714" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="715" lt="572" ts="1343511279128" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66563" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1249" lt="536" ts="1343511279529" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19274" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1220" lt="508" ts="1343511279855" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19282" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1193" lt="890" ts="1343511280780" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21505" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="210" lt="210" ts="1343511281976" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1129" lt="730" ts="1343511281077" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21727" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="149" lt="149" ts="1343511282208" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2976" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="714" lt="487" ts="1343511282189" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66633" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="881" lt="675" ts="1343511282360" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66619" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1483" lt="658" ts="1343511282912" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19287" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1151" lt="609" ts="1343511283248" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19453" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1111" lt="809" ts="1343511284397" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21496" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="267" lt="267" ts="1343511285510" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1452" lt="915" ts="1343511284403" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21553" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="245" lt="245" ts="1343511285857" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="584" lt="528" ts="1343511285780" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66730" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="833" lt="584" ts="1343511286105" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66577" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1330" lt="732" ts="1343511286373" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19282" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1220" lt="531" ts="1343511286948" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19281" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1334" lt="866" ts="1343511287704" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21516" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="252" lt="251" ts="1343511289041" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1352" lt="913" ts="1343511288169" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="20258" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="154" lt="154" ts="1343511289523" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="741" lt="559" ts="1343511289297" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66670" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="587" lt="530" ts="1343511289680" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66623" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1228" lt="542" ts="1343511290047" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19619" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1169" lt="521" ts="1343511290274" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19266" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1089" lt="812" ts="1343511291277" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21520" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="261" lt="261" ts="1343511292368" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1208" lt="822" ts="1343511291445" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21508" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="248" lt="248" ts="1343511292655" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="662" lt="606" ts="1343511292632" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66694" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="735" lt="501" ts="1343511292909" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66771" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1231" lt="602" ts="1343511293302" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19283" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1265" lt="498" ts="1343511293650" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19274" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1408" lt="956" ts="1343511294535" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21584" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="157" lt="157" ts="1343511295945" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="1318" lt="982" ts="1343511294917" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21491" sc="1" ec="0">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="160" lt="160" ts="1343511296237" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+
+</testResults>

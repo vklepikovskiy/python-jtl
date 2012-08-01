@@ -22,10 +22,23 @@ import csv
 from datetime import timedelta, datetime
 
 
-class Sample(namedtuple('Sample', 'by, de, dt, ec, hn, it, lb, lt, na, '
+class AssertionResult(namedtuple('AssertionResult', 'er, fa, fm, na')):
+    """The class that stores assertion result of the sample. It has the
+    following fields:
+    er -- error
+    fa -- failure
+    fm -- failure message
+    na -- name
+
+    """
+    pass
+
+
+class Sample(namedtuple('Sample', 'ar, by, de, dt, ec, hn, it, lb, lt, na, '
                         'ng, rc, rm, su, sc, ti, tn, ts')):
     """The class that stores one sample from the results data in named
     tuple. It has the following fields:
+    ar -- assertion results
     by -- bytes received
     de -- data encoding
     dt -- data type
@@ -82,7 +95,16 @@ class XMLParser(BaseParser):
         """
         for event, elem in self.context:
             if event == 'end' and elem.tag == 'httpSample':
+                assertion_results = []
+                for as_res in elem.findall('assertionResult'):
+                    assertion_results.append(AssertionResult(
+                            er=bool(as_res.findtext('error', '') == 'true'),
+                            fa=bool(as_res.findtext('failure', '') == 'true'),
+                            fm=as_res.findtext('failureMessage', ''),
+                            na=as_res.findtext('name', ''),
+                            ))
                 yield Sample(
+                        ar=tuple(assertion_results),
                         by=int(elem.get('by', 0)),
                         de=elem.get('de', ''),
                         dt=elem.get('dt', ''),
@@ -100,7 +122,8 @@ class XMLParser(BaseParser):
                         ti=timedelta(milliseconds=int(elem.get('t', 0))),
                         tn=elem.get('tn', ''),
                         ts=datetime.utcfromtimestamp(
-                                int(elem.get('ts', 0)) / 1000.0))
+                                int(elem.get('ts', 0)) / 1000.0),
+                        )
             self.root.clear()
 
 
@@ -124,7 +147,17 @@ class CSVParser(BaseParser):
         with open(self.source, 'rb') as fp:
             reader = csv.DictReader(fp)
             for row in reader:
+                if row.get('failureMessage'):
+                    assertion_results = [AssertionResult(
+                            er=False,
+                            fa=True,
+                            fm=row['failureMessage'],
+                            na=''
+                            )]
+                else:
+                    assertion_results = []
                 yield Sample(
+                        ar=tuple(assertion_results),
                         by=int(row.get('bytes', 0)),
                         de='',
                         dt=row.get('dataType', ''),
