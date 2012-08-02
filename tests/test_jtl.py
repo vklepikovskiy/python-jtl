@@ -266,7 +266,7 @@ class JTLTestCase(unittest.TestCase):
 
     def test_http_samples2_csv(self):
         sample_filename = os.path.join(self.tests_dir, 'samples/4.jtl')
-        parser = jtl.create_parser(sample_filename)
+        parser = jtl.create_parser(sample_filename, delimiter='|')
         http_samples = list(parser.http_samples())
         self.assertEqual(len(http_samples), 72)
 

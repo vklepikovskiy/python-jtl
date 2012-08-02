@@ -1,181 +1,181 @@
-timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,Latency,Encoding,SampleCount,ErrorCount
-1343511329019,1605,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66714,1127,utf-8,1,0
-1343511329520,1432,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66715,823,utf-8,1,0
-1343511330635,1189,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19280,594,UTF-8,1,0
-1343511330959,1284,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19266,547,UTF-8,1,0
-1343511331825,1619,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21535,1082,UTF-8,1,0
-1343511332246,1239,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21562,920,UTF-8,1,0
-1343511333446,145,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+timeStamp|elapsed|label|responseCode|responseMessage|threadName|dataType|success|failureMessage|bytes|Latency|Encoding|SampleCount|ErrorCount
+1343511329019|1605|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66714|1127|utf-8|1|0
+1343511329520|1432|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66715|823|utf-8|1|0
+1343511330635|1189|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19280|594|UTF-8|1|0
+1343511330959|1284|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19266|547|UTF-8|1|0
+1343511331825|1619|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21535|1082|UTF-8|1|0
+1343511332246|1239|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21562|920|UTF-8|1|0
+1343511333446|145|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,145,utf-8,1,1
-1343511333486,217,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|145|utf-8|1|1
+1343511333486|217|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,217,utf-8,1,1
-1343511333593,957,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66487,567,utf-8,1,0
-1343511333705,954,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66707,532,utf-8,1,0
-1343511334664,1145,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19284,554,UTF-8,1,0
-1343511334556,1260,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19464,633,UTF-8,1,0
-1343511335811,1287,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21495,822,UTF-8,1,0
-1343511335817,1286,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21535,843,UTF-8,1,0
-1343511337100,241,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|217|utf-8|1|1
+1343511333593|957|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66487|567|utf-8|1|0
+1343511333705|954|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66707|532|utf-8|1|0
+1343511334664|1145|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19284|554|UTF-8|1|0
+1343511334556|1260|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19464|633|UTF-8|1|0
+1343511335811|1287|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21495|822|UTF-8|1|0
+1343511335817|1286|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21535|843|UTF-8|1|0
+1343511337100|241|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2976,241,utf-8,1,1
-1343511337105,255,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2976|241|utf-8|1|1
+1343511337105|255|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,255,utf-8,1,1
-1343511337343,741,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66332,529,utf-8,1,0
-1343511337363,744,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66747,541,utf-8,1,0
-1343511338088,1076,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19289,648,UTF-8,1,0
-1343511338112,1441,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19272,676,UTF-8,1,0
-1343511339165,1341,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21529,888,UTF-8,1,0
-1343511340507,237,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|255|utf-8|1|1
+1343511337343|741|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66332|529|utf-8|1|0
+1343511337363|744|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66747|541|utf-8|1|0
+1343511338088|1076|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19289|648|UTF-8|1|0
+1343511338112|1441|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19272|676|UTF-8|1|0
+1343511339165|1341|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21529|888|UTF-8|1|0
+1343511340507|237|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,237,utf-8,1,1
-1343511339554,1393,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21536,818,UTF-8,1,0
-1343511340948,244,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|237|utf-8|1|1
+1343511339554|1393|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21536|818|UTF-8|1|0
+1343511340948|244|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,244,utf-8,1,1
-1343511340750,781,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66417,591,utf-8,1,0
-1343511341195,755,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66703,562,utf-8,1,0
-1343511341536,1249,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19355,550,UTF-8,1,0
-1343511341956,1184,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19277,624,UTF-8,1,0
-1343511342786,1185,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21532,746,UTF-8,1,0
-1343511343972,244,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|244|utf-8|1|1
+1343511340750|781|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66417|591|utf-8|1|0
+1343511341195|755|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66703|562|utf-8|1|0
+1343511341536|1249|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19355|550|UTF-8|1|0
+1343511341956|1184|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19277|624|UTF-8|1|0
+1343511342786|1185|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21532|746|UTF-8|1|0
+1343511343972|244|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,244,utf-8,1,1
-1343511343142,1375,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21522,902,UTF-8,1,0
-1343511344519,284,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|244|utf-8|1|1
+1343511343142|1375|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21522|902|UTF-8|1|0
+1343511344519|284|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,284,utf-8,1,1
-1343511344218,783,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66755,648,utf-8,1,0
-1343511344805,749,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66661,576,utf-8,1,0
-1343511345006,1210,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19272,533,UTF-8,1,0
-1343511345559,1080,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19259,545,UTF-8,1,0
-1343511346218,1171,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21516,870,UTF-8,1,0
-1343511347392,158,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|284|utf-8|1|1
+1343511344218|783|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66755|648|utf-8|1|0
+1343511344805|749|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66661|576|utf-8|1|0
+1343511345006|1210|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19272|533|UTF-8|1|0
+1343511345559|1080|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19259|545|UTF-8|1|0
+1343511346218|1171|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21516|870|UTF-8|1|0
+1343511347392|158|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,156,utf-8,1,1
-1343511346642,1128,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21684,750,UTF-8,1,0
-1343511347773,125,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|156|utf-8|1|1
+1343511346642|1128|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21684|750|UTF-8|1|0
+1343511347773|125|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2976,125,utf-8,1,1
-1343511347553,730,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66666,618,utf-8,1,0
-1343511347903,657,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66568,498,utf-8,1,0
-1343511348289,1346,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19290,505,UTF-8,1,0
-1343511348565,1175,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19343,861,UTF-8,1,0
-1343511349637,1369,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21547,928,UTF-8,1,0
-1343511349743,1359,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21531,891,UTF-8,1,0
-1343511351007,258,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2976|125|utf-8|1|1
+1343511347553|730|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66666|618|utf-8|1|0
+1343511347903|657|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66568|498|utf-8|1|0
+1343511348289|1346|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19290|505|UTF-8|1|0
+1343511348565|1175|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19343|861|UTF-8|1|0
+1343511349637|1369|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21547|928|UTF-8|1|0
+1343511349743|1359|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21531|891|UTF-8|1|0
+1343511351007|258|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,256,utf-8,1,1
-1343511351105,256,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|256|utf-8|1|1
+1343511351105|256|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,256,utf-8,1,1
-1343511351267,744,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66704,556,utf-8,1,0
-1343511351363,739,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66747,576,utf-8,1,0
-1343511352016,1202,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19294,595,UTF-8,1,0
-1343511352108,1409,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19267,641,UTF-8,1,0
-1343511353220,1339,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21485,997,UTF-8,1,0
-1343511354560,184,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|256|utf-8|1|1
+1343511351267|744|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66704|556|utf-8|1|0
+1343511351363|739|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66747|576|utf-8|1|0
+1343511352016|1202|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19294|595|UTF-8|1|0
+1343511352108|1409|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19267|641|UTF-8|1|0
+1343511353220|1339|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21485|997|UTF-8|1|0
+1343511354560|184|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,184,utf-8,1,1
-1343511353518,1343,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21525,905,UTF-8,1,0
-1343511354862,147,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|184|utf-8|1|1
+1343511353518|1343|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21525|905|UTF-8|1|0
+1343511354862|147|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,147,utf-8,1,1
-1343511354746,593,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66781,538,utf-8,1,0
-1343511355011,563,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66467,508,utf-8,1,0
-1343511355345,1334,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19283,702,UTF-8,1,0
-1343511355578,1263,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,19287,621,UTF-8,1,0
-1343511356681,1360,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21460,889,UTF-8,1,0
-1343511356842,1254,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21539,905,UTF-8,1,0
-1343511358042,173,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|147|utf-8|1|1
+1343511354746|593|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66781|538|utf-8|1|0
+1343511355011|563|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66467|508|utf-8|1|0
+1343511355345|1334|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19283|702|UTF-8|1|0
+1343511355578|1263|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||19287|621|UTF-8|1|0
+1343511356681|1360|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21460|889|UTF-8|1|0
+1343511356842|1254|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21539|905|UTF-8|1|0
+1343511358042|173|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,173,utf-8,1,1
-1343511358097,214,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|173|utf-8|1|1
+1343511358097|214|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,214,utf-8,1,1
-1343511358313,671,"""Home"" page",200,OK,Thread Group 1-1,text,true,,66666,584,utf-8,1,0
-1343511358217,767,"""Home"" page",200,OK,Thread Group 1-2,text,true,,66404,620,utf-8,1,0
-1343511358990,1121,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-1,text,true,,13604,308,UTF-8,1,0
-1343511358991,1200,/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4,200,OK,Thread Group 1-2,text,true,,19286,552,UTF-8,1,0
-1343511360112,1196,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-1,text,true,,21507,735,UTF-8,1,0
-1343511360193,1145,/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA,200,OK,Thread Group 1-2,text,true,,21525,847,UTF-8,1,0
-1343511361309,229,"fourth sample, last sample",404,Not Found,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+/"|2977|214|utf-8|1|1
+1343511358313|671|"""Home"" page"|200|OK|Thread Group 1-1|text|true||66666|584|utf-8|1|0
+1343511358217|767|"""Home"" page"|200|OK|Thread Group 1-2|text|true||66404|620|utf-8|1|0
+1343511358990|1121|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-1|text|true||13604|308|UTF-8|1|0
+1343511358991|1200|/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4|200|OK|Thread Group 1-2|text|true||19286|552|UTF-8|1|0
+1343511360112|1196|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-1|text|true||21507|735|UTF-8|1|0
+1343511360193|1145|/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA|200|OK|Thread Group 1-2|text|true||21525|847|UTF-8|1|0
+1343511361309|229|"fourth sample, last sample"|404|Not Found|Thread Group 1-1|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2977,228,utf-8,1,1
-1343511361340,239,"fourth sample, last sample",404,Not Found,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+/"|2977|228|utf-8|1|1
+1343511361340|239|"fourth sample, last sample"|404|Not Found|Thread Group 1-2|text|false|"Test failed: code expected to equal /
 
 ****** received  : [[[404]]]
 
 ****** comparison: [[[200]]]
 
-/",2976,239,utf-8,1,1
+/"|2976|239|utf-8|1|1

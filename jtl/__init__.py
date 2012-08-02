@@ -77,7 +77,7 @@ class XMLParser(BaseParser):
     """The class that implements JTL (XML) file parsing functionality.
 
     """
-    def __init__(self, source):
+    def __init__(self, source, **kwargs):
         """Initialize the class.
 
         Arguments:
@@ -131,21 +131,25 @@ class CSVParser(BaseParser):
     """The class that implements JTL (CSV) file parsing functionality.
 
     """
-    def __init__(self, source):
+    def __init__(self, source, **kwargs):
         """Initialize the class.
 
         Arguments:
         source -- name of the file containing the results data
 
+        Keyword arguments:
+        delimiter -- custom delimiter character (CSV only)
+
         """
         self.source = source
+        self.delimiter = kwargs.get('delimiter', ',')
 
     def http_samples(self):
         """Generator method which yeilds HTTP samples from the results.
 
         """
         with open(self.source, 'rb') as fp:
-            reader = csv.DictReader(fp)
+            reader = csv.DictReader(fp, delimiter=self.delimiter)
             for row in reader:
                 if row.get('failureMessage'):
                     assertion_results = [AssertionResult(
@@ -178,17 +182,20 @@ class CSVParser(BaseParser):
                                 int(row.get('timeStamp', 0)) / 1000.0))
 
 
-def create_parser(source):
+def create_parser(source, **kwargs):
     """The function that determines the format of the results file and
     creates and returns the appropriate parser.
 
     Arguments:
     source -- name of the file containing the results data
 
+    Keyword arguments:
+    delimiter -- custom delimiter character (CSV only)
+
     """
     with open(source) as fp:
         if fp.readline().startswith('<?xml'):
-            return XMLParser(source)
+            return XMLParser(source, **kwargs)
         else:
-            return CSVParser(source)
+            return CSVParser(source, **kwargs)
 
