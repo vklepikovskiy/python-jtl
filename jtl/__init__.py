@@ -35,7 +35,7 @@ class AssertionResult(namedtuple('AssertionResult', 'er, fa, fm, na')):
 
 
 class Sample(namedtuple('Sample', 'ar, by, de, dt, ec, hn, it, lb, lt, na, '
-                        'ng, rc, rm, su, sc, ti, tn, ts')):
+                        'ng, rc, rd, rf, rh, rm, su, sc, ti, tn, ts')):
     """The class that stores one sample from the results data in named
     tuple. It has the following fields:
     ar -- assertion results
@@ -50,6 +50,9 @@ class Sample(namedtuple('Sample', 'ar, by, de, dt, ec, hn, it, lb, lt, na, '
     na -- number of active threads for all thread groups
     ng -- number of active threads in this group
     rc -- response code
+    rd -- response data
+    rf -- response filename
+    rh -- response header
     rm -- response message
     sc -- sample count
     su -- success flag
@@ -116,6 +119,9 @@ class XMLParser(BaseParser):
                         na=int(elem.get('na', 0)),
                         ng=int(elem.get('ng', 0)),
                         rc=elem.get('rc', ''),
+                        rd=elem.findtext('responseData', ''),
+                        rf=elem.findtext('responseFile', ''),
+                        rh=elem.findtext('responseHeader', ''),
                         rm=elem.get('rm', ''),
                         sc=int(elem.get('sc', 0)),
                         su=bool(elem.get('s') == 'true'),
@@ -173,6 +179,9 @@ class CSVParser(BaseParser):
                         na=0,
                         ng=0,
                         rc=row.get('responseCode', ''),
+                        rd='',
+                        rf='',
+                        rh='',
                         rm=row.get('responseMessage', ''),
                         sc=0,
                         su=bool(row.get('success') == 'true'),

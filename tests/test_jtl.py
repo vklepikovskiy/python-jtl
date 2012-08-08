@@ -20,6 +20,7 @@ import unittest
 import jtl
 import os.path
 from datetime import timedelta, datetime
+import hashlib
 
 
 class JTLTestCase(unittest.TestCase):
@@ -46,6 +47,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=0,
@@ -68,6 +72,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='404',
+                rd='',
+                rf='',
+                rh='',
                 rm='Not Found',
                 su=False,
                 sc=0,
@@ -90,6 +97,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=0,
@@ -118,6 +128,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=0,
@@ -140,6 +153,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='404',
+                rd='',
+                rf='',
+                rh='',
                 rm='Not Found',
                 su=False,
                 sc=0,
@@ -162,6 +178,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=0,
@@ -195,6 +214,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=1,
@@ -228,6 +250,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='404',
+                rd='',
+                rf='',
+                rh='',
                 rm='Not Found',
                 su=False,
                 sc=1,
@@ -255,6 +280,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=1,
@@ -283,6 +311,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=0,
@@ -300,24 +331,27 @@ class JTLTestCase(unittest.TestCase):
                                'comparison: [[[200]]]\n\n/',
                             na=''),
                     ),
-            by=2976,
-            de='',
-            dt='text',
-            ec=0,
-            hn='',
-            it=timedelta(0),
-            lb='fourth sample, last sample',
-            lt=timedelta(0, 0, 239000),
-            na=0,
-            ng=0,
-            rc='404',
-            rm='Not Found',
-            su=False,
-            sc=0,
-            ti=timedelta(0, 0, 239000),
-            tn='Thread Group 1-2',
-            ts=datetime(2012, 7, 28, 21, 36, 1, 340000),
-            )
+                by=2976,
+                de='',
+                dt='text',
+                ec=0,
+                hn='',
+                it=timedelta(0),
+                lb='fourth sample, last sample',
+                lt=timedelta(0, 0, 239000),
+                na=0,
+                ng=0,
+                rc='404',
+                rd='',
+                rf='',
+                rh='',
+                rm='Not Found',
+                su=False,
+                sc=0,
+                ti=timedelta(0, 0, 239000),
+                tn='Thread Group 1-2',
+                ts=datetime(2012, 7, 28, 21, 36, 1, 340000),
+                )
         self.assertEqual(http_samples[71], test_sample)
 
         test_sample = jtl.Sample(
@@ -333,6 +367,9 @@ class JTLTestCase(unittest.TestCase):
                 na=0,
                 ng=0,
                 rc='200',
+                rd='',
+                rf='',
+                rh='',
                 rm='OK',
                 su=True,
                 sc=0,
@@ -341,6 +378,30 @@ class JTLTestCase(unittest.TestCase):
                 ts=datetime(2012, 7, 28, 21, 35, 45, 6000),
                 )
         self.assertEqual(http_samples[34], test_sample)
+
+    def test_http_samples3_xml(self):
+        sample_filename = os.path.join(self.tests_dir, 'samples/5.jtl')
+        parser = jtl.create_parser(sample_filename)
+        http_samples = list(parser.http_samples())
+        self.assertEqual(len(http_samples), 8)
+
+        rh_hash = hashlib.md5(http_samples[0].rh.encode('utf-8')).hexdigest()
+        rd_hash = hashlib.md5(http_samples[0].rd.encode('utf-8')).hexdigest()
+        self.assertEqual(rh_hash, '2601205232aae2d1b9db4e40442a273f')
+        self.assertEqual(rd_hash, 'fc4e078654a3ce52e131aec004a979c3')
+        self.assertEqual(http_samples[0].rf, '')
+
+        rh_hash = hashlib.md5(http_samples[7].rh.encode('utf-8')).hexdigest()
+        rd_hash = hashlib.md5(http_samples[7].rd.encode('utf-8')).hexdigest()
+        self.assertEqual(rh_hash, '3eb75abac01f48f1ef537d8fe9b23cf3')
+        self.assertEqual(rd_hash, 'dffc36ed460841da29f95ee281595aab')
+        self.assertEqual(http_samples[7].rf, '')
+
+        rh_hash = hashlib.md5(http_samples[3].rh.encode('utf-8')).hexdigest()
+        rd_hash = hashlib.md5(http_samples[3].rd.encode('utf-8')).hexdigest()
+        self.assertEqual(rh_hash, 'a2ddb572abec11e5209b030ea706a9c8')
+        self.assertEqual(rd_hash, 'd8efeea920a875cffee01aa9912e975c')
+        self.assertEqual(http_samples[3].rf, '')
 
 
 if __name__ == '__main__':
