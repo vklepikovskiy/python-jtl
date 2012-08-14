@@ -145,17 +145,20 @@ class CSVParser(BaseParser):
 
         Keyword arguments:
         delimiter -- custom delimiter character (CSV only)
+        fieldnames -- names of columns (CSV without fieldnames only)
 
         """
         self.source = source
         self.delimiter = kwargs.get('delimiter', ',')
+        self.fieldnames = kwargs.get('fieldnames', None)
 
     def http_samples(self):
         """Generator method which yeilds HTTP samples from the results.
 
         """
         with open(self.source, 'rb') as fp:
-            reader = csv.DictReader(fp, delimiter=self.delimiter)
+            reader = csv.DictReader(fp, delimiter=self.delimiter,
+                    fieldnames=self.fieldnames)
             for row in reader:
                 if row.get('failureMessage'):
                     assertion_results = [AssertionResult(
@@ -169,10 +172,10 @@ class CSVParser(BaseParser):
                 yield Sample(
                         ar=tuple(assertion_results),
                         by=int(row.get('bytes', 0)),
-                        de='',
+                        de=row.get('Encoding', ''),
                         dt=row.get('dataType', ''),
-                        ec=0,
-                        hn='',
+                        ec=int(row.get('ErrorCount', 0)),
+                        hn=row.get('Hostname', ''),
                         it=timedelta(0),
                         lb=row.get('label', ''),
                         lt=timedelta(milliseconds=int(row.get('Latency', 0))),
@@ -183,7 +186,7 @@ class CSVParser(BaseParser):
                         rf='',
                         rh='',
                         rm=row.get('responseMessage', ''),
-                        sc=0,
+                        sc=int(row.get('SampleCount', 0)),
                         su=bool(row.get('success') == 'true'),
                         ti=timedelta(milliseconds=int(row.get('elapsed', 0))),
                         tn=row.get('threadName', ''),
@@ -200,6 +203,7 @@ def create_parser(source, **kwargs):
 
     Keyword arguments:
     delimiter -- custom delimiter character (CSV only)
+    fieldnames -- names of columns (CSV without fieldnames only)
 
     """
     with open(source) as fp:
