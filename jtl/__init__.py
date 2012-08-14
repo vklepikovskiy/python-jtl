@@ -145,7 +145,11 @@ class CSVParser(BaseParser):
 
         Keyword arguments:
         delimiter -- custom delimiter character (CSV only)
-        fieldnames -- names of columns (CSV without fieldnames only)
+        fieldnames -- names of columns (CSV without fieldnames only);
+            valid fieldnames are: bytes, dataType, elapsed, Encoding,
+            ErrorCount, failureMessage, Hostname, label, Latency,
+            responseCode, responseMessage, SampleCount, success,
+            threadName, timeStamp
 
         """
         self.source = source
@@ -203,7 +207,11 @@ def create_parser(source, **kwargs):
 
     Keyword arguments:
     delimiter -- custom delimiter character (CSV only)
-    fieldnames -- names of columns (CSV without fieldnames only)
+    fieldnames -- names of columns (CSV without fieldnames only);
+        valid fieldnames are: bytes, dataType, elapsed, Encoding,
+        ErrorCount, failureMessage, Hostname, label, Latency,
+        responseCode, responseMessage, SampleCount, success,
+        threadName, timeStamp
 
     """
     with open(source) as fp:
