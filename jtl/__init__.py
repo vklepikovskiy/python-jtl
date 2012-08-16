@@ -34,12 +34,14 @@ class AssertionResult(namedtuple('AssertionResult', 'er, fa, fm, na')):
     pass
 
 
-class Sample(namedtuple('Sample', 'ar, by, de, dt, ec, hn, it, lb, lt, na, '
-                        'ng, rc, rd, rf, rh, rm, su, sc, ti, tn, ts')):
+class Sample(namedtuple('Sample', 'ar, by, co, de, dt, ec, hn, it, lb, lt, '
+                        'me, na, ng, qs, rc, rd, rf, rh, rm, su, sc, ti, tn, '
+                        'ts')):
     """The class that stores one sample from the results data in named
     tuple. It has the following fields:
     ar -- assertion results
     by -- bytes received
+    co -- cookies
     de -- data encoding
     dt -- data type
     ec -- error count
@@ -47,8 +49,10 @@ class Sample(namedtuple('Sample', 'ar, by, de, dt, ec, hn, it, lb, lt, na, '
     it -- idle time
     lb -- label
     lt -- latency time
+    me -- method
     na -- number of active threads for all thread groups
     ng -- number of active threads in this group
+    qs -- query string
     rc -- response code
     rd -- response data
     rf -- response filename
@@ -109,6 +113,7 @@ class XMLParser(BaseParser):
                 yield Sample(
                         ar=tuple(assertion_results),
                         by=int(elem.get('by', 0)),
+                        co=elem.findtext('cookies', ''),
                         de=elem.get('de', ''),
                         dt=elem.get('dt', ''),
                         ec=int(elem.get('ec', 0)),
@@ -116,8 +121,10 @@ class XMLParser(BaseParser):
                         it=timedelta(milliseconds=int(elem.get('it', 0))),
                         lb=elem.get('lb', ''),
                         lt=timedelta(milliseconds=int(elem.get('lt', 0))),
+                        me=elem.findtext('method', ''),
                         na=int(elem.get('na', 0)),
                         ng=int(elem.get('ng', 0)),
+                        qs=elem.findtext('queryString', ''),
                         rc=elem.get('rc', ''),
                         rd=elem.findtext('responseData', ''),
                         rf=elem.findtext('responseFile', ''),
@@ -176,6 +183,7 @@ class CSVParser(BaseParser):
                 yield Sample(
                         ar=tuple(assertion_results),
                         by=int(row.get('bytes', 0)),
+                        co='',
                         de=row.get('Encoding', ''),
                         dt=row.get('dataType', ''),
                         ec=int(row.get('ErrorCount', 0)),
@@ -183,8 +191,10 @@ class CSVParser(BaseParser):
                         it=timedelta(0),
                         lb=row.get('label', ''),
                         lt=timedelta(milliseconds=int(row.get('Latency', 0))),
+                        me='',
                         na=0,
                         ng=0,
+                        qs='',
                         rc=row.get('responseCode', ''),
                         rd='',
                         rf='',
