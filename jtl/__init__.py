@@ -17,52 +17,64 @@
 
 
 from collections import namedtuple
+from datetime import timedelta, datetime
 from xml.etree import cElementTree as etree
 import csv
-from datetime import timedelta, datetime
 
 
-class AssertionResult(namedtuple('AssertionResult', 'er, fa, fm, na')):
-    """The class that stores assertion result of the sample. It has the
-    following fields:
-    er -- error
-    fa -- failure
-    fm -- failure message
-    na -- name
+class AssertionResult(namedtuple('AssertionResult', (
+            'error', 'failure', 'failure_message', 'name',
+            ))):
+    """The class that stores the single assertion result. It contains
+    the following fields:
+
+    error           -- error flag
+    failure         -- failure flag
+    failure_message -- failure message
+    name            -- assertion name
 
     """
     pass
 
 
-class Sample(namedtuple('Sample', 'ar, by, co, de, dt, ec, hn, it, lb, lt, '
-                        'me, na, ng, qs, rc, rd, rf, rh, rm, su, sc, ti, tn, '
-                        'ts')):
-    """The class that stores one sample from the results data in named
-    tuple. It has the following fields:
-    ar -- assertion results
-    by -- bytes received
-    co -- cookies
-    de -- data encoding
-    dt -- data type
-    ec -- error count
-    hn -- hostname where the sample was generated
-    it -- idle time
-    lb -- label
-    lt -- latency time
-    me -- method
-    na -- number of active threads for all thread groups
-    ng -- number of active threads in this group
-    qs -- query string
-    rc -- response code
-    rd -- response data
-    rf -- response filename
-    rh -- response header
-    rm -- response message
-    sc -- sample count
-    su -- success flag
-    ti -- elapsed time
-    tn -- thread name
-    ts -- timestamp
+class Sample(namedtuple('Sample', (
+            'all_threads', 'assertion_results', 'bytes_received', 'cookies',
+            'data_encoding', 'data_type', 'elapsed_time', 'error_count',
+            'group_threads', 'hostname', 'idle_time', 'label', 'latency_time',
+            'method', 'query_string', 'request_headers', 'response_code',
+            'response_data', 'response_filename', 'response_headers',
+            'response_message', 'sample_count', 'success', 'thread_name',
+            'timestamp', 'url',
+            ))):
+    """The class that stores the single sample from the results data.
+    It contains the following fields:
+
+    all_threads       -- number of active threads for all thread groups
+    assertion_results -- assertion results
+    bytes_received    -- bytes received
+    cookies           -- cookies
+    data_encoding     -- response data encoding
+    data_type         -- response data type
+    elapsed_time      -- elapsed time
+    error_count       -- error count
+    group_threads     -- number of active threads in this group
+    hostname          -- hostname where the sample was generated
+    idle_time         -- idle time
+    label             -- label of the sample
+    latency_time      -- latency time
+    method            -- HTTP method
+    query_string      -- HTTP query string
+    request_headers   -- request headers
+    response_code     -- response code
+    response_data     -- response data
+    response_filename -- response filename
+    response_headers  -- response headers
+    response_message  -- response message
+    sample_count      -- sample count
+    success           -- success flag
+    thread_name       -- thread name
+    timestamp         -- timestamp
+    url               -- url
 
     """
     pass
@@ -105,37 +117,44 @@ class XMLParser(BaseParser):
                 assertion_results = []
                 for as_res in elem.findall('assertionResult'):
                     assertion_results.append(AssertionResult(
-                            er=bool(as_res.findtext('error', '') == 'true'),
-                            fa=bool(as_res.findtext('failure', '') == 'true'),
-                            fm=as_res.findtext('failureMessage', ''),
-                            na=as_res.findtext('name', ''),
+                            error=bool(as_res.findtext('error', '') == 'true'),
+                            failure=bool(
+                                as_res.findtext('failure', '') == 'true'),
+                            failure_message=as_res.findtext(
+                                'failureMessage', ''),
+                            name=as_res.findtext('name', ''),
                             ))
                 yield Sample(
-                        ar=tuple(assertion_results),
-                        by=int(elem.get('by', 0)),
-                        co=elem.findtext('cookies', ''),
-                        de=elem.get('de', ''),
-                        dt=elem.get('dt', ''),
-                        ec=int(elem.get('ec', 0)),
-                        hn=elem.get('hn', ''),
-                        it=timedelta(milliseconds=int(elem.get('it', 0))),
-                        lb=elem.get('lb', ''),
-                        lt=timedelta(milliseconds=int(elem.get('lt', 0))),
-                        me=elem.findtext('method', ''),
-                        na=int(elem.get('na', 0)),
-                        ng=int(elem.get('ng', 0)),
-                        qs=elem.findtext('queryString', ''),
-                        rc=elem.get('rc', ''),
-                        rd=elem.findtext('responseData', ''),
-                        rf=elem.findtext('responseFile', ''),
-                        rh=elem.findtext('responseHeader', ''),
-                        rm=elem.get('rm', ''),
-                        sc=int(elem.get('sc', 0)),
-                        su=bool(elem.get('s') == 'true'),
-                        ti=timedelta(milliseconds=int(elem.get('t', 0))),
-                        tn=elem.get('tn', ''),
-                        ts=datetime.utcfromtimestamp(
-                                int(elem.get('ts', 0)) / 1000.0),
+                        all_threads=int(elem.get('na', 0)),
+                        assertion_results=tuple(assertion_results),
+                        bytes_received=int(elem.get('by', 0)),
+                        cookies=elem.findtext('cookies', ''),
+                        data_encoding=elem.get('de', ''),
+                        data_type=elem.get('dt', ''),
+                        elapsed_time=timedelta(
+                            milliseconds=int(elem.get('t', 0))),
+                        error_count=int(elem.get('ec', 0)),
+                        group_threads=int(elem.get('ng', 0)),
+                        hostname=elem.get('hn', ''),
+                        idle_time=timedelta(
+                            milliseconds=int(elem.get('it', 0))),
+                        label=elem.get('lb', ''),
+                        latency_time=timedelta(
+                            milliseconds=int(elem.get('lt', 0))),
+                        method=elem.findtext('method', ''),
+                        query_string=elem.findtext('queryString', ''),
+                        request_headers=elem.findtext('requestHeader', ''),
+                        response_code=elem.get('rc', ''),
+                        response_data=elem.findtext('responseData', ''),
+                        response_filename=elem.findtext('responseFile', ''),
+                        response_headers=elem.findtext('responseHeader', ''),
+                        response_message=elem.get('rm', ''),
+                        sample_count=int(elem.get('sc', 0)),
+                        success=bool(elem.get('s') == 'true'),
+                        thread_name=elem.get('tn', ''),
+                        timestamp=datetime.utcfromtimestamp(
+                            int(elem.get('ts', 0)) / 1000.0),
+                        url=elem.findtext('java.net.URL', ''),
                         )
             self.root.clear()
 
@@ -153,10 +172,11 @@ class CSVParser(BaseParser):
         Keyword arguments:
         delimiter -- custom delimiter character (CSV only)
         fieldnames -- names of columns (CSV without fieldnames only);
-            valid fieldnames are: bytes, dataType, elapsed, Encoding,
-            ErrorCount, failureMessage, Hostname, label, Latency,
-            responseCode, responseMessage, SampleCount, success,
-            threadName, timeStamp
+            valid fieldnames are: allThreads, bytes, dataType, elapsed,
+            Encoding, ErrorCount, failureMessage, Filename, grpThreads,
+            Hostname, IdleTime, label, Latency, responseCode,
+            responseMessage, SampleCount, success, threadName,
+            timeStamp, URL
 
         """
         self.source = source
@@ -173,39 +193,46 @@ class CSVParser(BaseParser):
             for row in reader:
                 if row.get('failureMessage'):
                     assertion_results = [AssertionResult(
-                            er=False,
-                            fa=True,
-                            fm=row['failureMessage'],
-                            na=''
+                            error=False,
+                            failure=True,
+                            failure_message=row['failureMessage'],
+                            name='',
                             )]
                 else:
                     assertion_results = []
                 yield Sample(
-                        ar=tuple(assertion_results),
-                        by=int(row.get('bytes', 0)),
-                        co='',
-                        de=row.get('Encoding', ''),
-                        dt=row.get('dataType', ''),
-                        ec=int(row.get('ErrorCount', 0)),
-                        hn=row.get('Hostname', ''),
-                        it=timedelta(0),
-                        lb=row.get('label', ''),
-                        lt=timedelta(milliseconds=int(row.get('Latency', 0))),
-                        me='',
-                        na=0,
-                        ng=0,
-                        qs='',
-                        rc=row.get('responseCode', ''),
-                        rd='',
-                        rf='',
-                        rh='',
-                        rm=row.get('responseMessage', ''),
-                        sc=int(row.get('SampleCount', 0)),
-                        su=bool(row.get('success') == 'true'),
-                        ti=timedelta(milliseconds=int(row.get('elapsed', 0))),
-                        tn=row.get('threadName', ''),
-                        ts=datetime.utcfromtimestamp(
-                                int(row.get('timeStamp', 0)) / 1000.0))
+                        all_threads=int(row.get('allThreads', 0)),
+                        assertion_results=tuple(assertion_results),
+                        bytes_received=int(row.get('bytes', 0)),
+                        cookies='',
+                        data_encoding=row.get('Encoding', ''),
+                        data_type=row.get('dataType', ''),
+                        elapsed_time=timedelta(
+                            milliseconds=int(row.get('elapsed', 0))),
+                        error_count=int(row.get('ErrorCount', 0)),
+                        group_threads=int(row.get('grpThreads', 0)),
+                        hostname=row.get('Hostname', ''),
+                        # workarond for JMeter's bug 53802
+                        idle_time=timedelta(
+                            milliseconds=int(row.get('IdleTime') or 0)),
+                        label=row.get('label', ''),
+                        latency_time=timedelta(
+                            milliseconds=int(row.get('Latency', 0))),
+                        method='',
+                        query_string='',
+                        request_headers='',
+                        response_code=row.get('responseCode', ''),
+                        response_data='',
+                        response_filename=row.get('Filename', ''),
+                        response_headers='',
+                        response_message=row.get('responseMessage', ''),
+                        sample_count=int(row.get('SampleCount', 0)),
+                        success=bool(row.get('success') == 'true'),
+                        thread_name=row.get('threadName', ''),
+                        timestamp=datetime.utcfromtimestamp(
+                            int(row.get('timeStamp', 0)) / 1000.0),
+                        url=row.get('URL', ''),
+                        )
 
 
 def create_parser(source, **kwargs):
@@ -218,10 +245,11 @@ def create_parser(source, **kwargs):
     Keyword arguments:
     delimiter -- custom delimiter character (CSV only)
     fieldnames -- names of columns (CSV without fieldnames only);
-        valid fieldnames are: bytes, dataType, elapsed, Encoding,
-        ErrorCount, failureMessage, Hostname, label, Latency,
-        responseCode, responseMessage, SampleCount, success,
-        threadName, timeStamp
+        valid fieldnames are: allThreads, bytes, dataType, elapsed,
+        Encoding, ErrorCount, failureMessage, Filename, grpThreads,
+        Hostname, IdleTime, label, Latency, responseCode,
+        responseMessage, SampleCount, success, threadName,
+        timeStamp, URL
 
     """
     with open(source) as fp:
@@ -229,4 +257,3 @@ def create_parser(source, **kwargs):
             return XMLParser(source, **kwargs)
         else:
             return CSVParser(source, **kwargs)
-

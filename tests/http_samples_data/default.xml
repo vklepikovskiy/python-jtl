@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="1863" lt="1080" ts="1343511262595" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66580" sc="1" ec="0">
+<httpSample t="1076" lt="668" ts="1345240197986" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62874">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -12,7 +12,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1904" lt="982" ts="1343511263091" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66368" sc="1" ec="0">
+<httpSample t="1719" lt="769" ts="1345240197499" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62708">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -24,7 +24,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1941" lt="1209" ts="1343511264488" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19267" sc="1" ec="0">
+<httpSample t="1403" lt="569" ts="1345240199114" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="13673">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -36,7 +36,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1641" lt="979" ts="1343511265009" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19274" sc="1" ec="0">
+<httpSample t="1188" lt="869" ts="1345240200520" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21180">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -48,19 +48,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1592" lt="1148" ts="1343511266431" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21496" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="224" lt="224" ts="1343511268025" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2976" sc="1" ec="1">
+<httpSample t="109" lt="109" ts="1345240201712" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -86,7 +74,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1641" lt="1104" ts="1343511266652" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21533" sc="1" ec="0">
+<httpSample t="4387" lt="1246" ts="1345240199237" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="18584">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -98,33 +86,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="211" lt="211" ts="1343511268296" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>true</failure>
-    <error>false</error>
-    <failureMessage>Test failed: code expected to equal /
-
-****** received  : [[[404]]]
-
-****** comparison: [[[200]]]
-
-/</failureMessage>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>true</failure>
-    <error>false</error>
-    <failureMessage>Test failed: message expected to equal /
-
-****** received  : [[[Not Found]]]
-
-****** comparison: [[[OK       ]]]
-
-/</failureMessage>
-  </assertionResult>
-</httpSample>
-<httpSample t="1143" lt="677" ts="1343511268254" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66569" sc="1" ec="0">
+<httpSample t="1139" lt="821" ts="1345240203628" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21216">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -136,67 +98,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1052" lt="616" ts="1343511268512" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66667" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1345" lt="535" ts="1343511269408" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19344" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1218" lt="546" ts="1343511269576" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19266" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1181" lt="766" ts="1343511270755" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21491" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1144" lt="877" ts="1343511270799" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21537" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="121" lt="121" ts="1343511271939" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="269" lt="191" ts="1345240204770" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2976">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -222,7 +124,55 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="136" lt="136" ts="1343511271945" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="3489" lt="575" ts="1345240201827" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62662">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1925" lt="646" ts="1345240205044" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62617">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1220" lt="392" ts="1345240206984" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19564">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="869" lt="683" ts="1345240208206" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21209">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="106" lt="106" ts="1345240209079" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -248,7 +198,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="645" lt="440" ts="1343511272064" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66657" sc="1" ec="0">
+<httpSample t="1465" lt="590" ts="1345240209190" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62689">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -260,7 +210,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="720" lt="493" ts="1343511272085" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66544" sc="1" ec="0">
+<httpSample t="1053" lt="219" ts="1345240210671" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="13668">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -272,7 +222,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1339" lt="648" ts="1343511272720" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19281" sc="1" ec="0">
+<httpSample t="1038" lt="721" ts="1345240211728" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21209">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -284,43 +234,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1379" lt="648" ts="1343511272814" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19269" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1164" lt="878" ts="1343511274061" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21518" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1201" lt="893" ts="1343511274196" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21531" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="177" lt="177" ts="1343511275227" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="106" lt="106" ts="1345240212769" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -346,7 +260,43 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="247" lt="247" ts="1343511275399" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="1334" lt="598" ts="1345240212879" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62801">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="957" lt="390" ts="1345240214229" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19552">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1118" lt="795" ts="1345240215188" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21258">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="182" lt="182" ts="1345240216309" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -372,7 +322,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="853" lt="616" ts="1343511275407" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66550" sc="1" ec="0">
+<httpSample t="2423" lt="477" ts="1345240216495" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62775">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -384,7 +334,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="727" lt="538" ts="1343511275650" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66508" sc="1" ec="0">
+<httpSample t="993" lt="384" ts="1345240218932" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19545">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -396,7 +346,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1157" lt="560" ts="1343511276274" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19265" sc="1" ec="0">
+<httpSample t="1108" lt="786" ts="1345240219928" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21215">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -408,31 +358,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1444" lt="491" ts="1343511276385" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19458" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1198" lt="898" ts="1343511277433" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21529" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="178" lt="178" ts="1343511278633" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2976" sc="1" ec="1">
+<httpSample t="941" lt="602" ts="1345240221039" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2976">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -458,7 +384,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1090" lt="757" ts="1343511277831" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21515" sc="1" ec="0">
+<httpSample t="17403" lt="2877" ts="1345240205341" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19548">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -470,7 +396,31 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="201" lt="201" ts="1343511278923" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="1808" lt="542" ts="1345240221984" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62765">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1139" lt="782" ts="1345240222747" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21231">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="184" lt="184" ts="1345240223888" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -496,7 +446,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="707" lt="573" ts="1343511278813" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66714" sc="1" ec="0">
+<httpSample t="2280" lt="608" ts="1345240224076" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62602">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -508,7 +458,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="715" lt="572" ts="1343511279128" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66563" sc="1" ec="0">
+<httpSample t="1242" lt="385" ts="1345240226366" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19651">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -520,7 +470,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1249" lt="536" ts="1343511279529" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19274" sc="1" ec="0">
+<httpSample t="3938" lt="1126" ts="1345240223799" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19547">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -532,7 +482,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1220" lt="508" ts="1343511279855" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19282" sc="1" ec="0">
+<httpSample t="1084" lt="766" ts="1345240227611" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21204">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -544,19 +494,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1193" lt="890" ts="1343511280780" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21505" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="210" lt="210" ts="1343511281976" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="112" lt="112" ts="1345240228698" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -582,7 +520,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1129" lt="730" ts="1343511281077" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21727" sc="1" ec="0">
+<httpSample t="1348" lt="1027" ts="1345240227740" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21330">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -594,7 +532,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="149" lt="149" ts="1343511282208" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2976" sc="1" ec="1">
+<httpSample t="291" lt="213" ts="1345240229090" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -620,7 +558,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="714" lt="487" ts="1343511282189" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66633" sc="1" ec="0">
+<httpSample t="900" lt="494" ts="1345240229385" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62798">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -632,7 +570,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="881" lt="675" ts="1343511282360" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66619" sc="1" ec="0">
+<httpSample t="1604" lt="562" ts="1345240228813" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62911">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -644,7 +582,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1483" lt="658" ts="1343511282912" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19287" sc="1" ec="0">
+<httpSample t="1230" lt="382" ts="1345240230433" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19563">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -656,7 +594,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1151" lt="609" ts="1343511283248" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19453" sc="1" ec="0">
+<httpSample t="869" lt="677" ts="1345240231665" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21230">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -668,19 +606,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1111" lt="809" ts="1343511284397" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21496" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="267" lt="267" ts="1343511285510" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="107" lt="107" ts="1345240232536" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2976">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -706,7 +632,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1452" lt="915" ts="1343511284403" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21553" sc="1" ec="0">
+<httpSample t="2384" lt="1076" ts="1345240230309" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19536">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -718,7 +644,19 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="245" lt="245" ts="1343511285857" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="690" lt="530" ts="1345240232695" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21237">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="108" lt="106" ts="1345240233387" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -744,7 +682,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="584" lt="528" ts="1343511285780" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66730" sc="1" ec="0">
+<httpSample t="1366" lt="488" ts="1345240232648" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62775">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -756,7 +694,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="833" lt="584" ts="1343511286105" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66577" sc="1" ec="0">
+<httpSample t="569" lt="416" ts="1345240233499" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62684">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -768,7 +706,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1330" lt="732" ts="1343511286373" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19282" sc="1" ec="0">
+<httpSample t="984" lt="389" ts="1345240234078" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19560">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -780,7 +718,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1220" lt="531" ts="1343511286948" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19281" sc="1" ec="0">
+<httpSample t="1067" lt="739" ts="1345240235065" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21216">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -792,19 +730,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1334" lt="866" ts="1343511287704" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21516" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="252" lt="251" ts="1343511289041" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="141" lt="141" ts="1345240236135" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -830,7 +756,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1352" lt="913" ts="1343511288169" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="20258" sc="1" ec="0">
+<httpSample t="534" lt="438" ts="1345240236280" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62713">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -842,7 +768,43 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="154" lt="154" ts="1343511289523" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="3452" lt="2565" ts="1345240234025" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19537">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1234" lt="382" ts="1345240236827" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19563">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="877" lt="685" ts="1345240237479" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21193">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="114" lt="114" ts="1345240238359" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2976">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -868,7 +830,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="741" lt="559" ts="1343511289297" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66670" sc="1" ec="0">
+<httpSample t="682" lt="587" ts="1345240238479" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62654">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -880,7 +842,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="587" lt="530" ts="1343511289680" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66623" sc="1" ec="0">
+<httpSample t="1653" lt="1331" ts="1345240238064" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="21205">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -892,43 +854,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1228" lt="542" ts="1343511290047" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19619" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1169" lt="521" ts="1343511290274" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19266" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="1089" lt="812" ts="1343511291277" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21520" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="261" lt="261" ts="1343511292368" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="107" lt="107" ts="1345240239720" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2976">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -954,7 +880,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1208" lt="822" ts="1343511291445" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21508" sc="1" ec="0">
+<httpSample t="525" lt="467" ts="1345240239831" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="62583">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -966,7 +892,31 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="248" lt="248" ts="1343511292655" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="1252" lt="392" ts="1345240239172" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19552">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="897" lt="736" ts="1345240240426" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="20441">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="131" lt="130" ts="1345240241325" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -992,7 +942,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="662" lt="606" ts="1343511292632" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="utf-8" by="66694" sc="1" ec="0">
+<httpSample t="578" lt="525" ts="1345240241459" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62721">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -1004,7 +954,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="735" lt="501" ts="1343511292909" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="utf-8" by="66771" sc="1" ec="0">
+<httpSample t="1253" lt="393" ts="1345240242044" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19634">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -1016,7 +966,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1231" lt="602" ts="1343511293302" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="19283" sc="1" ec="0">
+<httpSample t="3734" lt="396" ts="1345240240367" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="19547">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -1028,7 +978,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1265" lt="498" ts="1343511293650" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="19274" sc="1" ec="0">
+<httpSample t="893" lt="710" ts="1345240243299" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="20449">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -1040,19 +990,7 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="1408" lt="956" ts="1343511294535" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" de="UTF-8" by="21584" sc="1" ec="0">
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <assertionResult>
-    <name>Response Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</httpSample>
-<httpSample t="157" lt="157" ts="1343511295945" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="107" lt="107" ts="1345240244194" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
@@ -1078,7 +1016,7 @@
 /</failureMessage>
   </assertionResult>
 </httpSample>
-<httpSample t="1318" lt="982" ts="1343511294917" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" de="UTF-8" by="21491" sc="1" ec="0">
+<httpSample t="476" lt="425" ts="1345240244304" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62810">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>false</failure>
@@ -1090,7 +1028,193 @@
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="160" lt="160" ts="1343511296237" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" de="utf-8" by="2977" sc="1" ec="1">
+<httpSample t="865" lt="696" ts="1345240244104" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="20438">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="111" lt="111" ts="1345240244971" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-1" dt="text" by="2977">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="3352" lt="1888" ts="1345240244790" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19559">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="868" lt="703" ts="1345240248144" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="20461">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="110" lt="110" ts="1345240249014" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="528" lt="476" ts="1345240249127" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62700">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1912" lt="1266" ts="1345240249665" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="13656">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="864" lt="658" ts="1345240251973" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21209">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="110" lt="110" ts="1345240252840" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2977">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected to equal /
+
+****** received  : [[[404]]]
+
+****** comparison: [[[200]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: message expected to equal /
+
+****** received  : [[[Not Found]]]
+
+****** comparison: [[[OK       ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="528" lt="473" ts="1345240252954" s="true" lb="&quot;Home&quot; page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="62755">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="2196" lt="1020" ts="1345240253492" s="true" lb="/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="19561">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="895" lt="655" ts="1345240255690" s="true" lb="/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="21281">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="106" lt="104" ts="1345240256587" s="false" lb="fourth sample, last sample" rc="404" rm="Not Found" tn="Thread Group 1-2" dt="text" by="2976">
   <assertionResult>
     <name>Response Assertion</name>
     <failure>true</failure>
