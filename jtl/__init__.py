@@ -128,7 +128,9 @@ class XMLParser(BaseParser):
                         all_threads=int(elem.get('na', 0)),
                         assertion_results=tuple(assertion_results),
                         bytes_received=int(elem.get('by', 0)),
-                        cookies=elem.findtext('cookies', ''),
+                        cookies=dict([c.split('=', 1)
+                            for c in elem.findtext('cookies', '').split('; ')
+                            if c]),
                         data_encoding=elem.get('de', ''),
                         data_type=elem.get('dt', ''),
                         elapsed_time=timedelta(
@@ -204,7 +206,7 @@ class CSVParser(BaseParser):
                         all_threads=int(row.get('allThreads', 0)),
                         assertion_results=tuple(assertion_results),
                         bytes_received=int(row.get('bytes', 0)),
-                        cookies='',
+                        cookies={},
                         data_encoding=row.get('Encoding', ''),
                         data_type=row.get('dataType', ''),
                         elapsed_time=timedelta(

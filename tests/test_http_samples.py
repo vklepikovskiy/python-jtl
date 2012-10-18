@@ -56,7 +56,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=62874,
-                cookies='',
+                cookies={},
                 data_encoding='',
                 data_type='text',
                 elapsed_time=timedelta(0, 1, 76000),
@@ -99,7 +99,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=21216,
-                cookies='',
+                cookies={},
                 data_encoding='',
                 data_type='text',
                 elapsed_time=timedelta(0, 1, 67000),
@@ -146,7 +146,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=2976,
-                cookies='',
+                cookies={},
                 data_encoding='',
                 data_type='text',
                 elapsed_time=timedelta(0, 0, 106000),
@@ -211,7 +211,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=64189,
-                cookies='',
+                cookies={},
                 data_encoding='utf-8',
                 data_type='text',
                 elapsed_time=timedelta(0, 1, 350000),
@@ -237,9 +237,9 @@ class HttpSamplesTestCase(unittest.TestCase):
                 )
         self.assertEqual(http_samples[0], test_sample)
 
-        cookies_hash = hashlib.md5(
-                http_samples[39].cookies.encode('utf-8')).hexdigest()
-        self.assertEqual(cookies_hash, '5df5a8a71e93f529abfa5a3dee7f155d')
+        self.assertEqual(len(http_samples[39].cookies), 7)
+        assert 'MSC' in http_samples[39].cookies
+        self.assertEqual(http_samples[39].cookies['MSC'], 't=1345758579X')
         request_headers_hash = hashlib.md5(
                 http_samples[39].request_headers.encode('utf-8')).hexdigest()
         self.assertEqual(request_headers_hash,
@@ -252,7 +252,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 http_samples[39].response_headers.encode('utf-8')).hexdigest()
         self.assertEqual(response_headers_hash,
                 '67c76a25b15a057ece26f4d70c426c0a')
-        http_samples[39] = http_samples[39]._replace(cookies='',
+        http_samples[39] = http_samples[39]._replace(cookies={},
                 request_headers='', response_data='', response_headers='')
 
         test_sample = jtl.Sample(
@@ -276,7 +276,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=2977,
-                cookies='',
+                cookies={},
                 data_encoding='utf-8',
                 data_type='text',
                 elapsed_time=timedelta(0, 0, 137000),
@@ -302,9 +302,10 @@ class HttpSamplesTestCase(unittest.TestCase):
                 )
         self.assertEqual(http_samples[39], test_sample)
 
-        cookies_hash = hashlib.md5(
-                http_samples[78].cookies.encode('utf-8')).hexdigest()
-        self.assertEqual(cookies_hash, '442deaf8ae98043d657f6f566de4a40e')
+        self.assertEqual(len(http_samples[78].cookies), 4)
+        assert 'B' in http_samples[78].cookies
+        self.assertEqual(http_samples[78].cookies['B'],
+                '5vdh93l83d9cc&b=3&s=bs')
         request_headers_hash = hashlib.md5(
                 http_samples[78].request_headers.encode('utf-8')).hexdigest()
         self.assertEqual(request_headers_hash,
@@ -313,7 +314,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 http_samples[78].response_headers.encode('utf-8')).hexdigest()
         self.assertEqual(response_headers_hash,
                 '619795b6767475a1c6f64bde2d034def')
-        http_samples[78] = http_samples[78]._replace(cookies='',
+        http_samples[78] = http_samples[78]._replace(cookies={},
                 request_headers='', response_headers='')
 
         test_sample = jtl.Sample(
@@ -333,7 +334,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=71256,
-                cookies='',
+                cookies={},
                 data_encoding='UTF-8',
                 data_type='text',
                 elapsed_time=timedelta(0, 3, 571000),
@@ -379,7 +380,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 all_threads=0,
                 assertion_results=(),
                 bytes_received=64653,
-                cookies='',
+                cookies={},
                 data_encoding='',
                 data_type='text',
                 elapsed_time=timedelta(0, 1, 336000),
@@ -409,7 +410,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 all_threads=0,
                 assertion_results=(),
                 bytes_received=21236,
-                cookies='',
+                cookies={},
                 data_encoding='',
                 data_type='text',
                 elapsed_time=timedelta(0, 0, 680000),
@@ -439,7 +440,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 all_threads=0,
                 assertion_results=(),
                 bytes_received=2977,
-                cookies='',
+                cookies={},
                 data_encoding='',
                 data_type='text',
                 elapsed_time=timedelta(0, 0, 125000),
@@ -480,7 +481,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 all_threads=2,
                 assertion_results=(),
                 bytes_received=64366,
-                cookies='',
+                cookies={},
                 data_encoding='utf-8',
                 data_type='text',
                 elapsed_time=timedelta(0, 1, 152000),
@@ -519,7 +520,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=2977,
-                cookies='',
+                cookies={},
                 data_encoding='utf-8',
                 data_type='text',
                 elapsed_time=timedelta(0, 0, 109000),
@@ -549,7 +550,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 all_threads=1,
                 assertion_results=(),
                 bytes_received=21247,
-                cookies='',
+                cookies={},
                 data_encoding='UTF-8',
                 data_type='text',
                 elapsed_time=timedelta(0, 0, 882000),
