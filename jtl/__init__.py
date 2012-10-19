@@ -145,7 +145,10 @@ class XMLParser(BaseParser):
                             milliseconds=int(elem.get('lt', 0))),
                         method=elem.findtext('method', ''),
                         query_string=elem.findtext('queryString', ''),
-                        request_headers=elem.findtext('requestHeader', ''),
+                        request_headers=dict([h.split(': ', 1)
+                            for h in elem.findtext(
+                                'requestHeader', '').splitlines()
+                            if h]),
                         response_code=elem.get('rc', ''),
                         response_data=elem.findtext('responseData', ''),
                         response_filename=elem.findtext('responseFile', ''),
@@ -222,7 +225,7 @@ class CSVParser(BaseParser):
                             milliseconds=int(row.get('Latency', 0))),
                         method='',
                         query_string='',
-                        request_headers='',
+                        request_headers={},
                         response_code=row.get('responseCode', ''),
                         response_data='',
                         response_filename=row.get('Filename', ''),

@@ -68,7 +68,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 668000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -111,7 +111,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 739000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -158,7 +158,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 104000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='404',
                 response_data='',
                 response_filename='',
@@ -183,15 +183,15 @@ class HttpSamplesTestCase(unittest.TestCase):
         http_samples = list(parser.http_samples())
         self.assertEqual(len(http_samples), 80)
 
-        request_headers_hash = hashlib.md5(
-                http_samples[0].request_headers.encode('utf-8')).hexdigest()
-        self.assertEqual(request_headers_hash,
-                'd70d0315af5de96b69e7db31ea1b0af6')
+        self.assertEqual(len(http_samples[0].request_headers), 5)
+        assert 'Accept-Language' in http_samples[0].request_headers
+        self.assertEqual(http_samples[0].request_headers['Accept-Language'],
+                'ru-ru,ru;q=0.8,en-us;q=0.5,en;q=0.3')
         response_headers_hash = hashlib.md5(
                 http_samples[0].response_headers.encode('utf-8')).hexdigest()
         self.assertEqual(response_headers_hash,
                 'e020a373e777cefc230081df26a06a6b')
-        http_samples[0] = http_samples[0]._replace(request_headers='',
+        http_samples[0] = http_samples[0]._replace(request_headers={},
                 response_headers='')
 
         test_sample = jtl.Sample(
@@ -223,7 +223,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 802000),
                 method='GET',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -240,10 +240,10 @@ class HttpSamplesTestCase(unittest.TestCase):
         self.assertEqual(len(http_samples[39].cookies), 7)
         assert 'MSC' in http_samples[39].cookies
         self.assertEqual(http_samples[39].cookies['MSC'], 't=1345758579X')
-        request_headers_hash = hashlib.md5(
-                http_samples[39].request_headers.encode('utf-8')).hexdigest()
-        self.assertEqual(request_headers_hash,
-                'd70d0315af5de96b69e7db31ea1b0af6')
+        self.assertEqual(len(http_samples[39].request_headers), 5)
+        assert 'Accept-Encoding' in http_samples[39].request_headers
+        self.assertEqual(http_samples[39].request_headers['Accept-Encoding'],
+                'gzip, deflate')
         response_data_hash = hashlib.md5(
                 http_samples[39].response_data.encode('utf-8')).hexdigest()
         self.assertEqual(response_data_hash,
@@ -253,7 +253,7 @@ class HttpSamplesTestCase(unittest.TestCase):
         self.assertEqual(response_headers_hash,
                 '67c76a25b15a057ece26f4d70c426c0a')
         http_samples[39] = http_samples[39]._replace(cookies={},
-                request_headers='', response_data='', response_headers='')
+                request_headers={}, response_data='', response_headers='')
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -288,7 +288,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 137000),
                 method='GET',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='404',
                 response_data='',
                 response_filename='',
@@ -306,16 +306,17 @@ class HttpSamplesTestCase(unittest.TestCase):
         assert 'B' in http_samples[78].cookies
         self.assertEqual(http_samples[78].cookies['B'],
                 '5vdh93l83d9cc&b=3&s=bs')
-        request_headers_hash = hashlib.md5(
-                http_samples[78].request_headers.encode('utf-8')).hexdigest()
-        self.assertEqual(request_headers_hash,
-                'd3fd281a8dd813ed29f01944d6b4e874')
+        self.assertEqual(len(http_samples[78].request_headers), 6)
+        assert 'Referer' in http_samples[78].request_headers
+        self.assertEqual(http_samples[78].request_headers['Referer'],
+                'http://search.yahoo.com/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4'
+                '?p=potato&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701')
         response_headers_hash = hashlib.md5(
                 http_samples[78].response_headers.encode('utf-8')).hexdigest()
         self.assertEqual(response_headers_hash,
                 '619795b6767475a1c6f64bde2d034def')
         http_samples[78] = http_samples[78]._replace(cookies={},
-                request_headers='', response_headers='')
+                request_headers={}, response_headers='')
 
         test_sample = jtl.Sample(
                 all_threads=1,
@@ -346,7 +347,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 790000),
                 method='GET',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -360,7 +361,6 @@ class HttpSamplesTestCase(unittest.TestCase):
                     '_ylt=A0oG7lg2AvZPowgACQNXNyoA?ei=UTF-8&p=potato'
                     '&fr2=tab-web&fr=yfp-t-701',
                 )
-
         self.assertEqual(http_samples[78], test_sample)
 
     def test_csv_default(self):
@@ -392,7 +392,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 851000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -422,7 +422,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 517000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -452,7 +452,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 125000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='404',
                 response_data='',
                 response_filename='',
@@ -493,7 +493,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 755000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
@@ -532,7 +532,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 109000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='404',
                 response_data='',
                 response_filename='',
@@ -562,7 +562,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 latency_time=timedelta(0, 0, 704000),
                 method='',
                 query_string='',
-                request_headers='',
+                request_headers={},
                 response_code='200',
                 response_data='',
                 response_filename='',
