@@ -72,7 +72,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=0,
                 success=True,
@@ -115,7 +115,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=0,
                 success=True,
@@ -162,7 +162,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='404',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='Not Found',
                 sample_count=0,
                 success=False,
@@ -187,12 +187,13 @@ class HttpSamplesTestCase(unittest.TestCase):
         assert 'Accept-Language' in http_samples[0].request_headers
         self.assertEqual(http_samples[0].request_headers['Accept-Language'],
                 'ru-ru,ru;q=0.8,en-us;q=0.5,en;q=0.3')
-        response_headers_hash = hashlib.md5(
-                http_samples[0].response_headers.encode('utf-8')).hexdigest()
-        self.assertEqual(response_headers_hash,
-                'e020a373e777cefc230081df26a06a6b')
+        self.assertEqual(http_samples[0].response_headers['status_line'],
+                'HTTP/1.1 200 OK')
+        self.assertEqual(len(http_samples[0].response_headers['headers']), 12)
+        assert 'Server' in http_samples[0].response_headers['headers']
+        self.assertEqual(http_samples[0].response_headers['headers']['Server'], 'YTS/1.20.10')
         http_samples[0] = http_samples[0]._replace(request_headers={},
-                response_headers='')
+                response_headers={'status_line': '', 'headers': {}})
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -227,7 +228,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=1,
                 success=True,
@@ -244,16 +245,16 @@ class HttpSamplesTestCase(unittest.TestCase):
         assert 'Accept-Encoding' in http_samples[39].request_headers
         self.assertEqual(http_samples[39].request_headers['Accept-Encoding'],
                 'gzip, deflate')
-        response_data_hash = hashlib.md5(
-                http_samples[39].response_data.encode('utf-8')).hexdigest()
-        self.assertEqual(response_data_hash,
-                '1d6165ad17ce4278351db7c3993c097f')
-        response_headers_hash = hashlib.md5(
-                http_samples[39].response_headers.encode('utf-8')).hexdigest()
-        self.assertEqual(response_headers_hash,
-                '67c76a25b15a057ece26f4d70c426c0a')
+        self.assertEqual(http_samples[39].response_headers['status_line'],
+                'HTTP/1.1 404 Not Found')
+        self.assertEqual(len(http_samples[39].response_headers['headers']), 9)
+        assert 'Content-Type' in http_samples[39].response_headers['headers']
+        self.assertEqual(
+                http_samples[39].response_headers['headers']['Content-Type'],
+                'text/html; charset=utf-8')
         http_samples[39] = http_samples[39]._replace(cookies={},
-                request_headers={}, response_data='', response_headers='')
+                request_headers={}, response_data='',
+                response_headers={'status_line': '', 'headers': {}})
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -292,7 +293,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='404',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='Not Found',
                 sample_count=1,
                 success=False,
@@ -311,12 +312,15 @@ class HttpSamplesTestCase(unittest.TestCase):
         self.assertEqual(http_samples[78].request_headers['Referer'],
                 'http://search.yahoo.com/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4'
                 '?p=potato&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701')
-        response_headers_hash = hashlib.md5(
-                http_samples[78].response_headers.encode('utf-8')).hexdigest()
-        self.assertEqual(response_headers_hash,
-                '619795b6767475a1c6f64bde2d034def')
+        self.assertEqual(http_samples[78].response_headers['status_line'],
+                'HTTP/1.1 200 OK')
+        self.assertEqual(len(http_samples[78].response_headers['headers']), 9)
+        assert 'Date' in http_samples[78].response_headers['headers']
+        self.assertEqual(http_samples[78].response_headers['headers']['Date'],
+                'Thu, 23 Aug 2012 21:50:06 GMT')
         http_samples[78] = http_samples[78]._replace(cookies={},
-                request_headers={}, response_headers='')
+                request_headers={},
+                response_headers={'status_line': '', 'headers': {}})
 
         test_sample = jtl.Sample(
                 all_threads=1,
@@ -351,7 +355,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=1,
                 success=True,
@@ -396,7 +400,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=0,
                 success=True,
@@ -426,7 +430,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=0,
                 success=True,
@@ -456,7 +460,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='404',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='Not Found',
                 sample_count=0,
                 success=False,
@@ -497,7 +501,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=1,
                 success=True,
@@ -536,7 +540,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='404',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='Not Found',
                 sample_count=1,
                 success=False,
@@ -566,7 +570,7 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_code='200',
                 response_data='',
                 response_filename='',
-                response_headers='',
+                response_headers={'status_line': '', 'headers': {}},
                 response_message='OK',
                 sample_count=1,
                 success=True,

@@ -124,6 +124,8 @@ class XMLParser(BaseParser):
                                 'failureMessage', ''),
                             name=as_res.findtext('name', ''),
                             ))
+                response_status_line, response_headers = elem.findtext(
+                        'responseHeader', '\n').split('\n', 1)
                 yield Sample(
                         all_threads=int(elem.get('na', 0)),
                         assertion_results=tuple(assertion_results),
@@ -152,7 +154,9 @@ class XMLParser(BaseParser):
                         response_code=elem.get('rc', ''),
                         response_data=elem.findtext('responseData', ''),
                         response_filename=elem.findtext('responseFile', ''),
-                        response_headers=elem.findtext('responseHeader', ''),
+                        response_headers={'status_line': response_status_line,
+                            'headers': dict([h.split(': ', 1)
+                                for h in response_headers.splitlines() if h])},
                         response_message=elem.get('rm', ''),
                         sample_count=int(elem.get('sc', 0)),
                         success=bool(elem.get('s') == 'true'),
@@ -229,7 +233,7 @@ class CSVParser(BaseParser):
                         response_code=row.get('responseCode', ''),
                         response_data='',
                         response_filename=row.get('Filename', ''),
-                        response_headers='',
+                        response_headers={'status_line': '', 'headers': {}},
                         response_message=row.get('responseMessage', ''),
                         sample_count=int(row.get('SampleCount', 0)),
                         success=bool(row.get('success') == 'true'),
