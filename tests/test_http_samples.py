@@ -36,8 +36,8 @@ class HttpSamplesTestCase(unittest.TestCase):
         samples_filename = os.path.join(self.tests_dir,
                 'http_samples_data/default.xml')
         parser = jtl.create_parser(samples_filename)
-        http_samples = list(parser.http_samples())
-        self.assertEqual(len(http_samples), 3)
+        samples = list(parser.itersamples())
+        self.assertEqual(len(samples), 3)
 
         test_sample = jtl.Sample(
                 all_threads=0,
@@ -76,11 +76,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=0,
                 success=True,
+                tag_name='httpSample',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 17, 21, 49, 57, 986000),
                 url='',
                 )
-        self.assertEqual(http_samples[0], test_sample)
+        self.assertEqual(samples[0], test_sample)
 
         test_sample = jtl.Sample(
                 all_threads=0,
@@ -119,11 +120,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=0,
                 success=True,
+                tag_name='httpSample',
                 thread_name='Thread Group 1-1',
                 timestamp=datetime(2012, 8, 17, 21, 50, 35, 65000),
                 url='',
                 )
-        self.assertEqual(http_samples[1], test_sample)
+        self.assertEqual(samples[1], test_sample)
 
         test_sample = jtl.Sample(
                 all_threads=0,
@@ -166,11 +168,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='Not Found',
                 sample_count=0,
                 success=False,
+                tag_name='httpSample',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 17, 21, 50, 56, 587000),
                 url='',
                 )
-        self.assertEqual(http_samples[2], test_sample)
+        self.assertEqual(samples[2], test_sample)
 
     def test_xml_all(self):
         """Test XML parser using HTTP samples data saved with all
@@ -180,19 +183,20 @@ class HttpSamplesTestCase(unittest.TestCase):
         samples_filename = os.path.join(self.tests_dir,
                 'http_samples_data/all.xml')
         parser = jtl.create_parser(samples_filename)
-        http_samples = list(parser.http_samples())
-        self.assertEqual(len(http_samples), 3)
+        samples = list(parser.itersamples())
+        self.assertEqual(len(samples), 3)
 
-        self.assertEqual(len(http_samples[0].request_headers), 5)
-        assert 'Accept-Language' in http_samples[0].request_headers
-        self.assertEqual(http_samples[0].request_headers['Accept-Language'],
+        self.assertEqual(len(samples[0].request_headers), 5)
+        assert 'Accept-Language' in samples[0].request_headers
+        self.assertEqual(samples[0].request_headers['Accept-Language'],
                 'ru-ru,ru;q=0.8,en-us;q=0.5,en;q=0.3')
-        self.assertEqual(http_samples[0].response_headers['status_line'],
+        self.assertEqual(samples[0].response_headers['status_line'],
                 'HTTP/1.1 200 OK')
-        self.assertEqual(len(http_samples[0].response_headers['headers']), 12)
-        assert 'Server' in http_samples[0].response_headers['headers']
-        self.assertEqual(http_samples[0].response_headers['headers']['Server'], 'YTS/1.20.10')
-        http_samples[0] = http_samples[0]._replace(request_headers={},
+        self.assertEqual(len(samples[0].response_headers['headers']), 12)
+        assert 'Server' in samples[0].response_headers['headers']
+        self.assertEqual(samples[0].response_headers['headers']['Server'],
+                'YTS/1.20.10')
+        samples[0] = samples[0]._replace(request_headers={},
                 response_headers={'status_line': '', 'headers': {}})
 
         test_sample = jtl.Sample(
@@ -232,27 +236,28 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=1,
                 success=True,
+                tag_name='httpSample',
                 thread_name='Thread Group 1-1',
                 timestamp=datetime(2012, 8, 23, 21, 49, 21, 246000),
                 url='http://www.yahoo.com/',
                 )
-        self.assertEqual(http_samples[0], test_sample)
+        self.assertEqual(samples[0], test_sample)
 
-        self.assertEqual(len(http_samples[1].cookies), 7)
-        assert 'MSC' in http_samples[1].cookies
-        self.assertEqual(http_samples[1].cookies['MSC'], 't=1345758579X')
-        self.assertEqual(len(http_samples[1].request_headers), 5)
-        assert 'Accept-Encoding' in http_samples[1].request_headers
-        self.assertEqual(http_samples[1].request_headers['Accept-Encoding'],
+        self.assertEqual(len(samples[1].cookies), 7)
+        assert 'MSC' in samples[1].cookies
+        self.assertEqual(samples[1].cookies['MSC'], 't=1345758579X')
+        self.assertEqual(len(samples[1].request_headers), 5)
+        assert 'Accept-Encoding' in samples[1].request_headers
+        self.assertEqual(samples[1].request_headers['Accept-Encoding'],
                 'gzip, deflate')
-        self.assertEqual(http_samples[1].response_headers['status_line'],
+        self.assertEqual(samples[1].response_headers['status_line'],
                 'HTTP/1.1 404 Not Found')
-        self.assertEqual(len(http_samples[1].response_headers['headers']), 9)
-        assert 'Content-Type' in http_samples[1].response_headers['headers']
+        self.assertEqual(len(samples[1].response_headers['headers']), 9)
+        assert 'Content-Type' in samples[1].response_headers['headers']
         self.assertEqual(
-                http_samples[1].response_headers['headers']['Content-Type'],
+                samples[1].response_headers['headers']['Content-Type'],
                 'text/html; charset=utf-8')
-        http_samples[1] = http_samples[1]._replace(cookies={},
+        samples[1] = samples[1]._replace(cookies={},
                 request_headers={}, response_data='',
                 response_headers={'status_line': '', 'headers': {}})
 
@@ -297,28 +302,29 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='Not Found',
                 sample_count=1,
                 success=False,
+                tag_name='httpSample',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 23, 21, 49, 40, 553000),
                 url='http://www.yahoo.com/some_page',
                 )
-        self.assertEqual(http_samples[1], test_sample)
+        self.assertEqual(samples[1], test_sample)
 
-        self.assertEqual(len(http_samples[2].cookies), 4)
-        assert 'B' in http_samples[2].cookies
-        self.assertEqual(http_samples[2].cookies['B'],
+        self.assertEqual(len(samples[2].cookies), 4)
+        assert 'B' in samples[2].cookies
+        self.assertEqual(samples[2].cookies['B'],
                 '5vdh93l83d9cc&b=3&s=bs')
-        self.assertEqual(len(http_samples[2].request_headers), 6)
-        assert 'Referer' in http_samples[2].request_headers
-        self.assertEqual(http_samples[2].request_headers['Referer'],
+        self.assertEqual(len(samples[2].request_headers), 6)
+        assert 'Referer' in samples[2].request_headers
+        self.assertEqual(samples[2].request_headers['Referer'],
                 'http://search.yahoo.com/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4'
                 '?p=potato&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701')
-        self.assertEqual(http_samples[2].response_headers['status_line'],
+        self.assertEqual(samples[2].response_headers['status_line'],
                 'HTTP/1.1 200 OK')
-        self.assertEqual(len(http_samples[2].response_headers['headers']), 9)
-        assert 'Date' in http_samples[2].response_headers['headers']
-        self.assertEqual(http_samples[2].response_headers['headers']['Date'],
+        self.assertEqual(len(samples[2].response_headers['headers']), 9)
+        assert 'Date' in samples[2].response_headers['headers']
+        self.assertEqual(samples[2].response_headers['headers']['Date'],
                 'Thu, 23 Aug 2012 21:50:06 GMT')
-        http_samples[2] = http_samples[2]._replace(cookies={},
+        samples[2] = samples[2]._replace(cookies={},
                 request_headers={},
                 response_headers={'status_line': '', 'headers': {}})
 
@@ -359,13 +365,14 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=1,
                 success=True,
+                tag_name='httpSample',
                 thread_name='Thread Group 1-1',
                 timestamp=datetime(2012, 8, 23, 21, 50, 4, 17000),
                 url='http://images.search.yahoo.com/search/images;'
                     '_ylt=A0oG7lg2AvZPowgACQNXNyoA?ei=UTF-8&p=potato'
                     '&fr2=tab-web&fr=yfp-t-701',
                 )
-        self.assertEqual(http_samples[2], test_sample)
+        self.assertEqual(samples[2], test_sample)
 
     def test_csv_default(self):
         """Test CSV parser using HTTP samples data saved with default
@@ -377,8 +384,8 @@ class HttpSamplesTestCase(unittest.TestCase):
         parser = jtl.create_parser(samples_filename, fieldnames=(
             'timeStamp', 'elapsed', 'label', 'responseCode', 'responseMessage',
             'threadName', 'dataType', 'success', 'bytes', 'Latency'))
-        http_samples = list(parser.http_samples())
-        self.assertEqual(len(http_samples), 3)
+        samples = list(parser.itersamples())
+        self.assertEqual(len(samples), 3)
 
         test_sample = jtl.Sample(
                 all_threads=0,
@@ -404,11 +411,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=0,
                 success=True,
+                tag_name='',
                 thread_name='Thread Group 1-1',
                 timestamp=datetime(2012, 8, 23, 20, 42, 8, 465000),
                 url='',
                 )
-        self.assertEqual(http_samples[0], test_sample)
+        self.assertEqual(samples[0], test_sample)
 
         test_sample = jtl.Sample(
                 all_threads=0,
@@ -434,11 +442,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=0,
                 success=True,
+                tag_name='',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 23, 20, 42, 23, 796000),
                 url='',
                 )
-        self.assertEqual(http_samples[1], test_sample)
+        self.assertEqual(samples[1], test_sample)
 
         test_sample = jtl.Sample(
                 all_threads=0,
@@ -464,11 +473,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='Not Found',
                 sample_count=0,
                 success=False,
+                tag_name='',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 23, 20, 42, 38, 720000),
                 url='',
                 )
-        self.assertEqual(http_samples[2], test_sample)
+        self.assertEqual(samples[2], test_sample)
 
     def test_csv_all(self):
         """Test CSV parser using HTTP samples data saved with all
@@ -478,8 +488,8 @@ class HttpSamplesTestCase(unittest.TestCase):
         samples_filename = os.path.join(self.tests_dir,
                 'http_samples_data/all.csv')
         parser = jtl.create_parser(samples_filename, delimiter='|')
-        http_samples = list(parser.http_samples())
-        self.assertEqual(len(http_samples), 3)
+        samples = list(parser.itersamples())
+        self.assertEqual(len(samples), 3)
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -505,11 +515,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=1,
                 success=True,
+                tag_name='',
                 thread_name='Thread Group 1-1',
                 timestamp=datetime(2012, 8, 23, 21, 53, 59, 670000),
                 url='http://www.yahoo.com/',
                 )
-        self.assertEqual(http_samples[0], test_sample)
+        self.assertEqual(samples[0], test_sample)
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -544,11 +555,12 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='Not Found',
                 sample_count=1,
                 success=False,
+                tag_name='',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 23, 21, 54, 18, 365000),
                 url='http://www.yahoo.com/some_page',
                 )
-        self.assertEqual(http_samples[1], test_sample)
+        self.assertEqual(samples[1], test_sample)
 
         test_sample = jtl.Sample(
                 all_threads=1,
@@ -574,13 +586,14 @@ class HttpSamplesTestCase(unittest.TestCase):
                 response_message='OK',
                 sample_count=1,
                 success=True,
+                tag_name='',
                 thread_name='Thread Group 1-2',
                 timestamp=datetime(2012, 8, 23, 21, 54, 33, 601000),
                 url='http://images.search.yahoo.com/search/images;'
                     '_ylt=A0oG7lg2AvZPowgACQNXNyoA?ei=UTF-8&p=potato'
                     '&fr2=tab-web&fr=yfp-t-701',
                 )
-        self.assertEqual(http_samples[2], test_sample)
+        self.assertEqual(samples[2], test_sample)
 
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@
 
 
 from collections import namedtuple
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 from xml.etree import cElementTree as etree
 import csv
 
@@ -43,8 +43,8 @@ class Sample(namedtuple('Sample', (
             'group_threads', 'hostname', 'idle_time', 'label', 'latency_time',
             'method', 'query_string', 'request_headers', 'response_code',
             'response_data', 'response_filename', 'response_headers',
-            'response_message', 'sample_count', 'success', 'thread_name',
-            'timestamp', 'url',
+            'response_message', 'sample_count', 'success', 'tag_name',
+            'thread_name', 'timestamp', 'url',
             ))):
     """The class that stores the single sample from the results data.
     It contains the following fields:
@@ -72,6 +72,7 @@ class Sample(namedtuple('Sample', (
     response_message  -- response message
     sample_count      -- sample count
     success           -- success flag
+    tag_name          -- sample tag name (XML only)
     thread_name       -- thread name
     timestamp         -- timestamp
     url               -- url
@@ -84,9 +85,9 @@ class BaseParser(object):
     """The base class for JTL parsers.
 
     """
-    def http_samples(self):
-        """Generator method which yields HTTP samples from the results.
-        Must be redefined in subclasses.
+    def itersamples(self):
+        """Generator method which yields samples from the results. Must be
+        redefined in subclasses.
 
         """
         raise NotImplementedError
@@ -108,63 +109,90 @@ class XMLParser(BaseParser):
         event, self.root = self.context.next()
         self.version = self.root.get('version')
 
-    def http_samples(self):
-        """Generator method which yields HTTP samples from the results.
+    def _get_assertion_results(self, elem):
+        """Get assertion results from the sample and return them as a list of
+        AssertionResult class instances.
+
+        """
+        assertion_results = []
+        for item in elem.findall('assertionResult'):
+            fields = {}
+            fields['error'] = bool(item.findtext('error', '') == 'true')
+            fields['failure'] = bool(item.findtext('failure', '') == 'true')
+            fields['failure_message'] = item.findtext('failureMessage', '')
+            fields['name'] = item.findtext('name', '')
+            assertion_results.append(AssertionResult(**fields))
+        return tuple(assertion_results)
+
+    def _get_cookies(self, elem):
+        """Get cookies from the sample and return them as a dictionary.
+
+        """
+        return dict([c.split('=', 1)
+                for c in elem.findtext('cookies', '').split('; ') if c])
+
+    def _get_request_headers(self, elem):
+        """Get request headers from the sample and return them as a
+        dictionary.
+
+        """
+        return dict([h.split(': ', 1)
+                for h in elem.findtext('requestHeader', '').splitlines() if h])
+
+    def _get_response_headers(self, elem):
+        """Get response headers from the sample and return them as
+        a dictionary.
+
+        """
+        response_status_line, response_headers = elem.findtext(
+                'responseHeader', '\n').split('\n', 1)
+        response_headers = dict([h.split(': ', 1)
+                for h in response_headers.splitlines() if h])
+        return {'status_line': response_status_line,
+                'headers': response_headers}
+
+    def _get_sample(self, elem):
+        """Return the sample data as an instance of Sample class.
+
+        """
+        sample = {}
+        sample['all_threads'] = int(elem.get('na', 0))
+        sample['assertion_results'] = self._get_assertion_results(elem)
+        sample['bytes_received'] = int(elem.get('by', 0))
+        sample['cookies'] = self._get_cookies(elem)
+        sample['data_encoding'] = elem.get('de', '')
+        sample['data_type'] = elem.get('dt', '')
+        sample['elapsed_time'] = timedelta(milliseconds=int(elem.get('t', 0)))
+        sample['error_count'] = int(elem.get('ec', 0))
+        sample['group_threads'] = int(elem.get('ng', 0))
+        sample['hostname'] = elem.get('hn', '')
+        sample['idle_time'] = timedelta(milliseconds=int(elem.get('it', 0)))
+        sample['label'] = elem.get('lb', '')
+        sample['latency_time'] = timedelta(milliseconds=int(elem.get('lt', 0)))
+        sample['method'] = elem.findtext('method', '')
+        sample['query_string'] = elem.findtext('queryString', '')
+        sample['request_headers'] = self._get_request_headers(elem)
+        sample['response_code'] = elem.get('rc', '')
+        sample['response_data'] = elem.findtext('responseData', '')
+        sample['response_filename'] = elem.findtext('responseFile', '')
+        sample['response_headers'] = self._get_response_headers(elem)
+        sample['response_message'] = elem.get('rm', '')
+        sample['sample_count'] = int(elem.get('sc', 0))
+        sample['success'] = bool(elem.get('s') == 'true')
+        sample['tag_name'] = elem.tag
+        sample['thread_name'] = elem.get('tn', '')
+        sample['timestamp'] = datetime.utcfromtimestamp(
+                int(elem.get('ts', 0)) / 1000.0)
+        sample['url'] = elem.findtext('java.net.URL', '')
+        return Sample(**sample)
+
+    def itersamples(self):
+        """Generator method which yields samples from the results.
 
         """
         for event, elem in self.context:
             if event == 'end' and elem.tag == 'httpSample':
-                assertion_results = []
-                for as_res in elem.findall('assertionResult'):
-                    assertion_results.append(AssertionResult(
-                            error=bool(as_res.findtext('error', '') == 'true'),
-                            failure=bool(
-                                as_res.findtext('failure', '') == 'true'),
-                            failure_message=as_res.findtext(
-                                'failureMessage', ''),
-                            name=as_res.findtext('name', ''),
-                            ))
-                response_status_line, response_headers = elem.findtext(
-                        'responseHeader', '\n').split('\n', 1)
-                yield Sample(
-                        all_threads=int(elem.get('na', 0)),
-                        assertion_results=tuple(assertion_results),
-                        bytes_received=int(elem.get('by', 0)),
-                        cookies=dict([c.split('=', 1)
-                            for c in elem.findtext('cookies', '').split('; ')
-                            if c]),
-                        data_encoding=elem.get('de', ''),
-                        data_type=elem.get('dt', ''),
-                        elapsed_time=timedelta(
-                            milliseconds=int(elem.get('t', 0))),
-                        error_count=int(elem.get('ec', 0)),
-                        group_threads=int(elem.get('ng', 0)),
-                        hostname=elem.get('hn', ''),
-                        idle_time=timedelta(
-                            milliseconds=int(elem.get('it', 0))),
-                        label=elem.get('lb', ''),
-                        latency_time=timedelta(
-                            milliseconds=int(elem.get('lt', 0))),
-                        method=elem.findtext('method', ''),
-                        query_string=elem.findtext('queryString', ''),
-                        request_headers=dict([h.split(': ', 1)
-                            for h in elem.findtext(
-                                'requestHeader', '').splitlines()
-                            if h]),
-                        response_code=elem.get('rc', ''),
-                        response_data=elem.findtext('responseData', ''),
-                        response_filename=elem.findtext('responseFile', ''),
-                        response_headers={'status_line': response_status_line,
-                            'headers': dict([h.split(': ', 1)
-                                for h in response_headers.splitlines() if h])},
-                        response_message=elem.get('rm', ''),
-                        sample_count=int(elem.get('sc', 0)),
-                        success=bool(elem.get('s') == 'true'),
-                        thread_name=elem.get('tn', ''),
-                        timestamp=datetime.utcfromtimestamp(
-                            int(elem.get('ts', 0)) / 1000.0),
-                        url=elem.findtext('java.net.URL', ''),
-                        )
+                yield self._get_sample(elem)
             self.root.clear()
 
 
@@ -192,56 +220,69 @@ class CSVParser(BaseParser):
         self.delimiter = kwargs.get('delimiter', ',')
         self.fieldnames = kwargs.get('fieldnames', None)
 
-    def http_samples(self):
-        """Generator method which yeilds HTTP samples from the results.
+    def _get_assertion_results(self, row):
+        """Get assertion results from the sample and return them as a list of
+        AssertionResult class instances.
+
+        """
+        assertion_results = []
+        if row.get('failureMessage'):
+            fields = {}
+            fields['error'] = False
+            fields['failure'] = True
+            fields['failure_message'] = row['failureMessage']
+            fields['name'] = ''
+            assertion_results.append(AssertionResult(**fields))
+        return tuple(assertion_results)
+
+    def _get_sample(self, row):
+        """Return the sample data as an instance of Sample class.
+
+        """
+        sample = {}
+        sample['all_threads'] = int(row.get('allThreads', 0))
+        sample['assertion_results'] = self._get_assertion_results(row)
+        sample['bytes_received'] = int(row.get('bytes', 0))
+        sample['cookies'] = {}
+        sample['data_encoding'] = row.get('Encoding', '')
+        sample['data_type'] = row.get('dataType', '')
+        sample['elapsed_time'] = timedelta(
+                milliseconds=int(row.get('elapsed', 0)))
+        sample['error_count'] = int(row.get('ErrorCount', 0))
+        sample['group_threads'] = int(row.get('grpThreads', 0))
+        sample['hostname'] = row.get('Hostname', '')
+        # workarond for JMeter's bug 53802
+        sample['idle_time'] = timedelta(
+                milliseconds=int(row.get('IdleTime') or 0))
+        sample['label'] = row.get('label', '')
+        sample['latency_time'] = timedelta(
+                milliseconds=int(row.get('Latency', 0)))
+        sample['method'] = ''
+        sample['query_string'] = ''
+        sample['request_headers'] = {}
+        sample['response_code'] = row.get('responseCode', '')
+        sample['response_data'] = ''
+        sample['response_filename'] = row.get('Filename', '')
+        sample['response_headers'] = {'status_line': '', 'headers': {}}
+        sample['response_message'] = row.get('responseMessage', '')
+        sample['sample_count'] = int(row.get('SampleCount', 0))
+        sample['success'] = bool(row.get('success') == 'true')
+        sample['tag_name'] = ''
+        sample['thread_name'] = row.get('threadName', '')
+        sample['timestamp'] = datetime.utcfromtimestamp(
+                int(row.get('timeStamp', 0)) / 1000.0)
+        sample['url'] = row.get('URL', '')
+        return Sample(**sample)
+
+    def itersamples(self):
+        """Generator method which yeilds samples from the results.
 
         """
         with open(self.source, 'rb') as fp:
             reader = csv.DictReader(fp, delimiter=self.delimiter,
                     fieldnames=self.fieldnames)
             for row in reader:
-                if row.get('failureMessage'):
-                    assertion_results = [AssertionResult(
-                            error=False,
-                            failure=True,
-                            failure_message=row['failureMessage'],
-                            name='',
-                            )]
-                else:
-                    assertion_results = []
-                yield Sample(
-                        all_threads=int(row.get('allThreads', 0)),
-                        assertion_results=tuple(assertion_results),
-                        bytes_received=int(row.get('bytes', 0)),
-                        cookies={},
-                        data_encoding=row.get('Encoding', ''),
-                        data_type=row.get('dataType', ''),
-                        elapsed_time=timedelta(
-                            milliseconds=int(row.get('elapsed', 0))),
-                        error_count=int(row.get('ErrorCount', 0)),
-                        group_threads=int(row.get('grpThreads', 0)),
-                        hostname=row.get('Hostname', ''),
-                        # workarond for JMeter's bug 53802
-                        idle_time=timedelta(
-                            milliseconds=int(row.get('IdleTime') or 0)),
-                        label=row.get('label', ''),
-                        latency_time=timedelta(
-                            milliseconds=int(row.get('Latency', 0))),
-                        method='',
-                        query_string='',
-                        request_headers={},
-                        response_code=row.get('responseCode', ''),
-                        response_data='',
-                        response_filename=row.get('Filename', ''),
-                        response_headers={'status_line': '', 'headers': {}},
-                        response_message=row.get('responseMessage', ''),
-                        sample_count=int(row.get('SampleCount', 0)),
-                        success=bool(row.get('success') == 'true'),
-                        thread_name=row.get('threadName', ''),
-                        timestamp=datetime.utcfromtimestamp(
-                            int(row.get('timeStamp', 0)) / 1000.0),
-                        url=row.get('URL', ''),
-                        )
+                yield self._get_sample(row)
 
 
 def create_parser(source, **kwargs):
