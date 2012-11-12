@@ -23,165 +23,20 @@ import os.path
 import unittest
 
 
-class HttpSamplesTestCase(unittest.TestCase):
+class MainTestCase(unittest.TestCase):
+    """python-jtl main tests.
+
+    """
     @classmethod
     def setUpClass(cls):
         cls.tests_dir = os.path.dirname(os.path.abspath(__file__))
 
-    def test_xml_default(self):
-        """Test XML parser using HTTP samples data saved with default
-        settings enabled.
+    def test_xml(self):
+        """Test XML parser.
 
         """
         samples_filename = os.path.join(self.tests_dir,
-                'http_samples_data/default.xml')
-        parser = jtl.create_parser(samples_filename)
-        samples = list(parser.itersamples())
-        self.assertEqual(len(samples), 3)
-
-        test_sample = jtl.Sample(
-                all_threads=0,
-                assertion_results=(
-                    jtl.AssertionResult(
-                        error=False,
-                        failure=False,
-                        failure_message='',
-                        name='Response Assertion',
-                        ),
-                    jtl.AssertionResult(
-                        error=False,
-                        failure=False,
-                        failure_message='',
-                        name='Response Assertion',
-                        ),
-                    ),
-                bytes_received=62874,
-                cookies={},
-                data_encoding='',
-                data_type='text',
-                elapsed_time=timedelta(0, 1, 76000),
-                error_count=0,
-                group_threads=0,
-                hostname='',
-                idle_time=timedelta(0),
-                label='"Home" page',
-                latency_time=timedelta(0, 0, 668000),
-                method='',
-                query_string='',
-                request_headers={},
-                response_code='200',
-                response_data='',
-                response_filename='',
-                response_headers={'status_line': '', 'headers': {}},
-                response_message='OK',
-                sample_count=0,
-                success=True,
-                tag_name='httpSample',
-                thread_name='Thread Group 1-2',
-                timestamp=datetime(2012, 8, 17, 21, 49, 57, 986000),
-                url='',
-                )
-        self.assertEqual(samples[0], test_sample)
-
-        test_sample = jtl.Sample(
-                all_threads=0,
-                assertion_results=(
-                    jtl.AssertionResult(
-                        error=False,
-                        failure=False,
-                        failure_message='',
-                        name='Response Assertion',
-                        ),
-                    jtl.AssertionResult(
-                        error=False,
-                        failure=False,
-                        failure_message='',
-                        name='Response Assertion',
-                        ),
-                    ),
-                bytes_received=21216,
-                cookies={},
-                data_encoding='',
-                data_type='text',
-                elapsed_time=timedelta(0, 1, 67000),
-                error_count=0,
-                group_threads=0,
-                hostname='',
-                idle_time=timedelta(0),
-                label='/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA',
-                latency_time=timedelta(0, 0, 739000),
-                method='',
-                query_string='',
-                request_headers={},
-                response_code='200',
-                response_data='',
-                response_filename='',
-                response_headers={'status_line': '', 'headers': {}},
-                response_message='OK',
-                sample_count=0,
-                success=True,
-                tag_name='httpSample',
-                thread_name='Thread Group 1-1',
-                timestamp=datetime(2012, 8, 17, 21, 50, 35, 65000),
-                url='',
-                )
-        self.assertEqual(samples[1], test_sample)
-
-        test_sample = jtl.Sample(
-                all_threads=0,
-                assertion_results=(
-                    jtl.AssertionResult(
-                        error=False,
-                        failure=True,
-                        failure_message='Test failed: code expected to equal '
-                            '/\n\n****** received  : [[[404]]]\n\n****** '
-                            'comparison: [[[200]]]\n\n/',
-                        name='Response Assertion',
-                        ),
-                    jtl.AssertionResult(
-                        error=False,
-                        failure=True,
-                        failure_message='Test failed: message expected to '
-                            'equal /\n\n****** received  : [[[Not Found]]]\n\n'
-                            '****** comparison: [[[OK       ]]]\n\n/',
-                        name='Response Assertion',
-                        ),
-                    ),
-                bytes_received=2976,
-                cookies={},
-                data_encoding='',
-                data_type='text',
-                elapsed_time=timedelta(0, 0, 106000),
-                error_count=0,
-                group_threads=0,
-                hostname='',
-                idle_time=timedelta(0),
-                label='fourth sample, last sample',
-                latency_time=timedelta(0, 0, 104000),
-                method='',
-                query_string='',
-                request_headers={},
-                response_code='404',
-                response_data='',
-                response_filename='',
-                response_headers={'status_line': '', 'headers': {}},
-                response_message='Not Found',
-                sample_count=0,
-                success=False,
-                tag_name='httpSample',
-                thread_name='Thread Group 1-2',
-                timestamp=datetime(2012, 8, 17, 21, 50, 56, 587000),
-                url='',
-                )
-        self.assertEqual(samples[2], test_sample)
-
-    def test_xml_all(self):
-        """Test XML parser using HTTP samples data saved with all
-        settings enabled.
-
-        """
-        samples_filename = os.path.join(self.tests_dir,
-                'http_samples_data/all.xml')
+                'samples/main.xml')
         parser = jtl.create_parser(samples_filename)
         samples = list(parser.itersamples())
         self.assertEqual(len(samples), 3)
@@ -374,120 +229,13 @@ class HttpSamplesTestCase(unittest.TestCase):
                 )
         self.assertEqual(samples[2], test_sample)
 
-    def test_csv_default(self):
-        """Test CSV parser using HTTP samples data saved with default
-        settings enabled.
+    def test_csv(self):
+        """Test CSV parser.
 
         """
         samples_filename = os.path.join(self.tests_dir,
-                'http_samples_data/default.csv')
-        parser = jtl.create_parser(samples_filename, fieldnames=(
-            'timeStamp', 'elapsed', 'label', 'responseCode', 'responseMessage',
-            'threadName', 'dataType', 'success', 'bytes', 'Latency'))
-        samples = list(parser.itersamples())
-        self.assertEqual(len(samples), 3)
-
-        test_sample = jtl.Sample(
-                all_threads=0,
-                assertion_results=(),
-                bytes_received=64653,
-                cookies={},
-                data_encoding='',
-                data_type='text',
-                elapsed_time=timedelta(0, 1, 336000),
-                error_count=0,
-                group_threads=0,
-                hostname='',
-                idle_time=timedelta(0),
-                label='"Home" page',
-                latency_time=timedelta(0, 0, 851000),
-                method='',
-                query_string='',
-                request_headers={},
-                response_code='200',
-                response_data='',
-                response_filename='',
-                response_headers={'status_line': '', 'headers': {}},
-                response_message='OK',
-                sample_count=0,
-                success=True,
-                tag_name='',
-                thread_name='Thread Group 1-1',
-                timestamp=datetime(2012, 8, 23, 20, 42, 8, 465000),
-                url='',
-                )
-        self.assertEqual(samples[0], test_sample)
-
-        test_sample = jtl.Sample(
-                all_threads=0,
-                assertion_results=(),
-                bytes_received=21236,
-                cookies={},
-                data_encoding='',
-                data_type='text',
-                elapsed_time=timedelta(0, 0, 680000),
-                error_count=0,
-                group_threads=0,
-                hostname='',
-                idle_time=timedelta(0),
-                label='/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA',
-                latency_time=timedelta(0, 0, 517000),
-                method='',
-                query_string='',
-                request_headers={},
-                response_code='200',
-                response_data='',
-                response_filename='',
-                response_headers={'status_line': '', 'headers': {}},
-                response_message='OK',
-                sample_count=0,
-                success=True,
-                tag_name='',
-                thread_name='Thread Group 1-2',
-                timestamp=datetime(2012, 8, 23, 20, 42, 23, 796000),
-                url='',
-                )
-        self.assertEqual(samples[1], test_sample)
-
-        test_sample = jtl.Sample(
-                all_threads=0,
-                assertion_results=(),
-                bytes_received=2977,
-                cookies={},
-                data_encoding='',
-                data_type='text',
-                elapsed_time=timedelta(0, 0, 125000),
-                error_count=0,
-                group_threads=0,
-                hostname='',
-                idle_time=timedelta(0),
-                label='fourth sample, last sample',
-                latency_time=timedelta(0, 0, 125000),
-                method='',
-                query_string='',
-                request_headers={},
-                response_code='404',
-                response_data='',
-                response_filename='',
-                response_headers={'status_line': '', 'headers': {}},
-                response_message='Not Found',
-                sample_count=0,
-                success=False,
-                tag_name='',
-                thread_name='Thread Group 1-2',
-                timestamp=datetime(2012, 8, 23, 20, 42, 38, 720000),
-                url='',
-                )
-        self.assertEqual(samples[2], test_sample)
-
-    def test_csv_all(self):
-        """Test CSV parser using HTTP samples data saved with all
-        settings enabled and custom delimiter character.
-
-        """
-        samples_filename = os.path.join(self.tests_dir,
-                'http_samples_data/all.csv')
-        parser = jtl.create_parser(samples_filename, delimiter='|')
+                'samples/main.csv')
+        parser = jtl.create_parser(samples_filename)
         samples = list(parser.itersamples())
         self.assertEqual(len(samples), 3)
 
