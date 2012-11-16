@@ -47,6 +47,7 @@ class DelimiterTestCase(unittest.TestCase):
                 all_threads=0,
                 assertion_results=(),
                 bytes_received=64653,
+                children=(),
                 cookies={},
                 data_encoding='',
                 data_type='text',

@@ -39,20 +39,24 @@ class MainTestCase(unittest.TestCase):
                 'samples/main.xml')
         parser = jtl.create_parser(samples_filename)
         samples = list(parser.itersamples())
-        self.assertEqual(len(samples), 3)
+        self.assertEqual(len(samples), 5)
 
-        self.assertEqual(len(samples[0].request_headers), 5)
-        assert 'Accept-Language' in samples[0].request_headers
-        self.assertEqual(samples[0].request_headers['Accept-Language'],
+        sample = samples[0]
+        fields_to_replace = {}
+        self.assertEqual(len(sample.request_headers), 5)
+        assert 'Accept-Language' in sample.request_headers
+        self.assertEqual(sample.request_headers['Accept-Language'],
                 'ru-ru,ru;q=0.8,en-us;q=0.5,en;q=0.3')
-        self.assertEqual(samples[0].response_headers['status_line'],
+        fields_to_replace['request_headers'] = {}
+        self.assertEqual(sample.response_headers['status_line'],
                 'HTTP/1.1 200 OK')
-        self.assertEqual(len(samples[0].response_headers['headers']), 12)
-        assert 'Server' in samples[0].response_headers['headers']
-        self.assertEqual(samples[0].response_headers['headers']['Server'],
+        self.assertEqual(len(sample.response_headers['headers']), 12)
+        assert 'Server' in sample.response_headers['headers']
+        self.assertEqual(sample.response_headers['headers']['Server'],
                 'YTS/1.20.10')
-        samples[0] = samples[0]._replace(request_headers={},
-                response_headers={'status_line': '', 'headers': {}})
+        fields_to_replace['response_headers'] = {
+                'status_line': '', 'headers': {}}
+        sample = sample._replace(**fields_to_replace)
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -71,6 +75,7 @@ class MainTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=64189,
+                children=(),
                 cookies={},
                 data_encoding='utf-8',
                 data_type='text',
@@ -96,25 +101,64 @@ class MainTestCase(unittest.TestCase):
                 timestamp=datetime(2012, 8, 23, 21, 49, 21, 246000),
                 url='http://www.yahoo.com/',
                 )
-        self.assertEqual(samples[0], test_sample)
+        self.assertEqual(sample, test_sample)
 
-        self.assertEqual(len(samples[1].cookies), 7)
-        assert 'MSC' in samples[1].cookies
-        self.assertEqual(samples[1].cookies['MSC'], 't=1345758579X')
-        self.assertEqual(len(samples[1].request_headers), 5)
-        assert 'Accept-Encoding' in samples[1].request_headers
-        self.assertEqual(samples[1].request_headers['Accept-Encoding'],
+        test_sample = jtl.Sample(
+                all_threads=2,
+                assertion_results=(),
+                bytes_received=64189,
+                children=(),
+                cookies={},
+                data_encoding='',
+                data_type='',
+                elapsed_time=timedelta(0, 1, 359000),
+                error_count=0,
+                group_threads=2,
+                hostname='hppc',
+                idle_time=timedelta(0),
+                label='Transaction Controller',
+                latency_time=timedelta(0, 0, 802000),
+                method='',
+                query_string='',
+                request_headers={},
+                response_code='',
+                response_data='',
+                response_filename='',
+                response_headers={'status_line': '', 'headers': {}},
+                response_message='Number of samples in transaction : 1, '
+                    'number of failing samples : 0',
+                sample_count=1,
+                success=False,
+                tag_name='sample',
+                thread_name='Thread Group 1-1',
+                timestamp=datetime(2012, 8, 23, 21, 49, 30, 542000),
+                url='',
+                )
+        self.assertEqual(samples[1], test_sample)
+
+        sample = samples[2]
+        fields_to_replace = {}
+        self.assertEqual(len(sample.cookies), 7)
+        assert 'MSC' in sample.cookies
+        self.assertEqual(sample.cookies['MSC'], 't=1345758579X')
+        fields_to_replace['cookies'] = {}
+        self.assertEqual(len(sample.request_headers), 5)
+        assert 'Accept-Encoding' in sample.request_headers
+        self.assertEqual(sample.request_headers['Accept-Encoding'],
                 'gzip, deflate')
-        self.assertEqual(samples[1].response_headers['status_line'],
+        fields_to_replace['request_headers'] = {}
+        hash = hashlib.md5(sample.response_data.encode('utf-8')).hexdigest()
+        self.assertEqual(hash, '1d6165ad17ce4278351db7c3993c097f')
+        fields_to_replace['response_data'] = ''
+        self.assertEqual(sample.response_headers['status_line'],
                 'HTTP/1.1 404 Not Found')
-        self.assertEqual(len(samples[1].response_headers['headers']), 9)
-        assert 'Content-Type' in samples[1].response_headers['headers']
-        self.assertEqual(
-                samples[1].response_headers['headers']['Content-Type'],
+        self.assertEqual(len(sample.response_headers['headers']), 9)
+        assert 'Content-Type' in sample.response_headers['headers']
+        self.assertEqual(sample.response_headers['headers']['Content-Type'],
                 'text/html; charset=utf-8')
-        samples[1] = samples[1]._replace(cookies={},
-                request_headers={}, response_data='',
-                response_headers={'status_line': '', 'headers': {}})
+        fields_to_replace['response_headers'] = {
+                'status_line': '', 'headers': {}}
+        sample = sample._replace(**fields_to_replace)
 
         test_sample = jtl.Sample(
                 all_threads=2,
@@ -137,6 +181,7 @@ class MainTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=2977,
+                children=(),
                 cookies={},
                 data_encoding='utf-8',
                 data_type='text',
@@ -162,26 +207,29 @@ class MainTestCase(unittest.TestCase):
                 timestamp=datetime(2012, 8, 23, 21, 49, 40, 553000),
                 url='http://www.yahoo.com/some_page',
                 )
-        self.assertEqual(samples[1], test_sample)
+        self.assertEqual(sample, test_sample)
 
-        self.assertEqual(len(samples[2].cookies), 4)
-        assert 'B' in samples[2].cookies
-        self.assertEqual(samples[2].cookies['B'],
-                '5vdh93l83d9cc&b=3&s=bs')
-        self.assertEqual(len(samples[2].request_headers), 6)
-        assert 'Referer' in samples[2].request_headers
-        self.assertEqual(samples[2].request_headers['Referer'],
+        sample = samples[3]
+        fields_to_replace = {}
+        self.assertEqual(len(sample.cookies), 4)
+        assert 'B' in sample.cookies
+        self.assertEqual(sample.cookies['B'], '5vdh93l83d9cc&b=3&s=bs')
+        fields_to_replace['cookies'] = {}
+        self.assertEqual(len(sample.request_headers), 6)
+        assert 'Referer' in sample.request_headers
+        self.assertEqual(sample.request_headers['Referer'],
                 'http://search.yahoo.com/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4'
                 '?p=potato&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701')
-        self.assertEqual(samples[2].response_headers['status_line'],
+        fields_to_replace['request_headers'] = {}
+        self.assertEqual(sample.response_headers['status_line'],
                 'HTTP/1.1 200 OK')
-        self.assertEqual(len(samples[2].response_headers['headers']), 9)
-        assert 'Date' in samples[2].response_headers['headers']
-        self.assertEqual(samples[2].response_headers['headers']['Date'],
+        self.assertEqual(len(sample.response_headers['headers']), 9)
+        assert 'Date' in sample.response_headers['headers']
+        self.assertEqual(sample.response_headers['headers']['Date'],
                 'Thu, 23 Aug 2012 21:50:06 GMT')
-        samples[2] = samples[2]._replace(cookies={},
-                request_headers={},
-                response_headers={'status_line': '', 'headers': {}})
+        fields_to_replace['response_headers'] ={
+                'status_line': '', 'headers': {}}
+        sample = sample._replace(**fields_to_replace)
 
         test_sample = jtl.Sample(
                 all_threads=1,
@@ -200,6 +248,7 @@ class MainTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=71256,
+                children=(),
                 cookies={},
                 data_encoding='UTF-8',
                 data_type='text',
@@ -227,7 +276,204 @@ class MainTestCase(unittest.TestCase):
                     '_ylt=A0oG7lg2AvZPowgACQNXNyoA?ei=UTF-8&p=potato'
                     '&fr2=tab-web&fr=yfp-t-701',
                 )
-        self.assertEqual(samples[2], test_sample)
+        self.assertEqual(sample, test_sample)
+
+        self.assertEqual(len(samples[4].children), 2)
+
+        sample = samples[4].children[0]
+        fields_to_replace = {}
+        self.assertEqual(len(sample.cookies), 3)
+        assert 'CH' in sample.cookies
+        self.assertEqual(sample.cookies['CH'],
+                'AgBQnmwQACQFEAAhVBAABrQQABfREAApVRAAIxwQACxvEAA17xAAMJkQABGv')
+        fields_to_replace['cookies'] = {}
+        self.assertEqual(len(sample.request_headers), 6)
+        assert 'Accept-Encoding' in sample.request_headers
+        self.assertEqual(sample.request_headers['Accept-Encoding'],
+                'gzip, deflate')
+        fields_to_replace['request_headers'] = {}
+        hash = hashlib.md5(sample.response_data.encode('utf-8')).hexdigest()
+        self.assertEqual(hash, 'bfc949a307bf6b89f1e74f343e313eeb')
+        fields_to_replace['response_data'] = ''
+        self.assertEqual(sample.response_headers['status_line'],
+                'HTTP/1.1 200 OK')
+        self.assertEqual(len(sample.response_headers['headers']), 10)
+        assert 'Keep-Alive' in sample.response_headers['headers']
+        self.assertEqual(sample.response_headers['headers']['Keep-Alive'],
+                'timeout=60, max=100')
+        fields_to_replace['response_headers'] = {
+                'status_line': '', 'headers': {}}
+        sample = sample._replace(**fields_to_replace)
+
+        test_sample = jtl.Sample(
+                all_threads=2,
+                assertion_results=(
+                    jtl.AssertionResult(
+                        error=False,
+                        failure=False,
+                        failure_message='',
+                        name='Response Assertion',
+                        ),
+                    jtl.AssertionResult(
+                        error=False,
+                        failure=False,
+                        failure_message='',
+                        name='Response Assertion',
+                        ),
+                    ),
+                bytes_received=22073,
+                children=(),
+                cookies={},
+                data_encoding='UTF-8',
+                data_type='text',
+                elapsed_time=timedelta(0, 1, 401000),
+                error_count=0,
+                group_threads=2,
+                hostname='hppc',
+                idle_time=timedelta(0),
+                label='/search;_ylt=A03uoRrUAfZPg18BCCmbvZx4',
+                latency_time=timedelta(0, 0, 604000),
+                method='GET',
+                query_string='',
+                request_headers={},
+                response_code='200',
+                response_data='',
+                response_filename='',
+                response_headers={'status_line': '', 'headers': {}},
+                response_message='OK',
+                sample_count=1,
+                success=True,
+                tag_name='httpSample',
+                thread_name='Thread Group 1-1',
+                timestamp=datetime(2012, 11, 10, 15, 2, 27, 692000),
+                url='http://search.yahoo.com/search;_ylt=A03uoRrUAfZPg18BCC'
+                    'mbvZx4?p=potato&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701',
+                )
+        self.assertEqual(sample, test_sample)
+
+        sample = samples[4].children[1]
+        fields_to_replace = {}
+        self.assertEqual(len(sample.cookies), 4)
+        assert 'sSN' in sample.cookies
+        self.assertEqual(sample.cookies['sSN'], 'Xj.um6U2wWEq3sFr6VoZpaSDPhht'
+                'y3fGDJ3cvewGeS9SkHOCAXsQjZwDs.T51.GdechtOO0X3bfVvZ6PGRbWhQ--')
+        fields_to_replace['cookies'] = {}
+        self.assertEqual(len(sample.request_headers), 6)
+        assert 'User-Agent' in sample.request_headers
+        self.assertEqual(sample.request_headers['User-Agent'],
+                'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 '
+                'Firefox/13.0.1')
+        fields_to_replace['request_headers'] = {}
+        hash = hashlib.md5(sample.response_data.encode('utf-8')).hexdigest()
+        self.assertEqual(hash, '30ac686ee464f6cb415a616c2013e63f')
+        fields_to_replace['response_data'] = ''
+        self.assertEqual(sample.response_headers['status_line'],
+                'HTTP/1.1 200 OK')
+        self.assertEqual(len(sample.response_headers['headers']), 10)
+        assert 'Set-Cookie' in sample.response_headers['headers']
+        self.assertEqual(sample.response_headers['headers']['Set-Cookie'],
+                'jr=1; path=/')
+        fields_to_replace['response_headers'] = {
+                'status_line': '', 'headers': {}}
+        sample = sample._replace(**fields_to_replace)
+
+        test_sample = jtl.Sample(
+                all_threads=2,
+                assertion_results=(
+                    jtl.AssertionResult(
+                        error=False,
+                        failure=False,
+                        failure_message='',
+                        name='Response Assertion',
+                        ),
+                    jtl.AssertionResult(
+                        error=False,
+                        failure=False,
+                        failure_message='',
+                        name='Response Assertion',
+                        ),
+                    ),
+                bytes_received=21759,
+                children=(),
+                cookies={},
+                data_encoding='UTF-8',
+                data_type='text',
+                elapsed_time=timedelta(0, 1, 364000),
+                error_count=0,
+                group_threads=2,
+                hostname='hppc',
+                idle_time=timedelta(0),
+                label='/search/images;_ylt=A0oG7lg2AvZPowgACQNXNyoA',
+                latency_time=timedelta(0, 1, 36000),
+                method='GET',
+                query_string='',
+                request_headers={},
+                response_code='200',
+                response_data='',
+                response_filename='',
+                response_headers={'headers': {}, 'status_line': ''},
+                response_message='OK',
+                sample_count=1,
+                success=True,
+                tag_name='httpSample',
+                thread_name='Thread Group 1-1',
+                timestamp=datetime(2012, 11, 10, 15, 2, 29, 96000),
+                url='http://images.search.yahoo.com/search/images;_ylt=A0oG7'
+                    'lg2AvZPowgACQNXNyoA?ei=UTF-8&p=potato&fr2=tab-web&fr=yf'
+                    'p-t-701',
+                )
+        self.assertEqual(sample, test_sample)
+
+        sample = samples[4]._replace(children=())
+        test_sample = jtl.Sample(
+                all_threads=2,
+                assertion_results=(
+                    jtl.AssertionResult(
+                        error=False,
+                        failure=False,
+                        failure_message='',
+                        name='Response Assertion',
+                        ),
+                    jtl.AssertionResult(
+                        error=False,
+                        failure=True,
+                        failure_message='Test failed: message expected to '
+                            'equal /\n\n****** received  : [[[Number of '
+                            'samples in transaction : 2, number of failing '
+                            'samples : 0]]]\n\n****** comparison: [[[OK                                                                 ]]]'
+                            '\n\n/',
+                        name='Response Assertion',
+                        ),
+                    ),
+                bytes_received=43832,
+                children=(),
+                cookies={},
+                data_encoding='',
+                data_type='',
+                elapsed_time=timedelta(0, 2, 769000),
+                error_count=1,
+                group_threads=2,
+                hostname='hppc',
+                idle_time=timedelta(0),
+                label='Transaction Controller Search',
+                latency_time=timedelta(0),
+                method='',
+                query_string='',
+                request_headers={},
+                response_code='200',
+                response_data='',
+                response_filename='',
+                response_headers={'headers': {}, 'status_line': ''},
+                response_message='Number of samples in transaction : 2, '
+                    'number of failing samples : 0',
+                sample_count=1,
+                success=False,
+                tag_name='sample',
+                thread_name='Thread Group 1-1',
+                timestamp=datetime(2012, 11, 10, 15, 2, 27, 691000),
+                url='',
+                )
+        self.assertEqual(sample, test_sample)
 
     def test_csv(self):
         """Test CSV parser.
@@ -243,6 +489,7 @@ class MainTestCase(unittest.TestCase):
                 all_threads=2,
                 assertion_results=(),
                 bytes_received=64366,
+                children=(),
                 cookies={},
                 data_encoding='utf-8',
                 data_type='text',
@@ -283,6 +530,7 @@ class MainTestCase(unittest.TestCase):
                         ),
                     ),
                 bytes_received=2977,
+                children=(),
                 cookies={},
                 data_encoding='utf-8',
                 data_type='text',
@@ -314,6 +562,7 @@ class MainTestCase(unittest.TestCase):
                 all_threads=1,
                 assertion_results=(),
                 bytes_received=21247,
+                children=(),
                 cookies={},
                 data_encoding='UTF-8',
                 data_type='text',

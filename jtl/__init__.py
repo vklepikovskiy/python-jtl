@@ -38,13 +38,13 @@ class AssertionResult(namedtuple('AssertionResult', (
 
 
 class Sample(namedtuple('Sample', (
-            'all_threads', 'assertion_results', 'bytes_received', 'cookies',
-            'data_encoding', 'data_type', 'elapsed_time', 'error_count',
-            'group_threads', 'hostname', 'idle_time', 'label', 'latency_time',
-            'method', 'query_string', 'request_headers', 'response_code',
-            'response_data', 'response_filename', 'response_headers',
-            'response_message', 'sample_count', 'success', 'tag_name',
-            'thread_name', 'timestamp', 'url',
+            'all_threads', 'assertion_results', 'bytes_received', 'children',
+            'cookies', 'data_encoding', 'data_type', 'elapsed_time',
+            'error_count', 'group_threads', 'hostname', 'idle_time', 'label',
+            'latency_time', 'method', 'query_string', 'request_headers',
+            'response_code', 'response_data', 'response_filename',
+            'response_headers', 'response_message', 'sample_count', 'success',
+            'tag_name', 'thread_name', 'timestamp', 'url',
             ))):
     """The class that stores the single sample from the results data.
     It contains the following fields:
@@ -52,6 +52,7 @@ class Sample(namedtuple('Sample', (
     all_threads       -- number of active threads for all thread groups
     assertion_results -- assertion results
     bytes_received    -- bytes received
+    children          -- list of child samples
     cookies           -- cookies
     data_encoding     -- response data encoding
     data_type         -- response data type
@@ -144,14 +145,14 @@ class XMLParser(BaseParser):
         a dictionary.
 
         """
-        response_status_line, response_headers = elem.findtext(
-                'responseHeader', '\n').split('\n', 1)
+        response_status_line, response_headers = (elem.findtext(
+                'responseHeader', '\n') or '\n').split('\n', 1)
         response_headers = dict([h.split(': ', 1)
                 for h in response_headers.splitlines() if h])
         return {'status_line': response_status_line,
                 'headers': response_headers}
 
-    def _get_sample(self, elem):
+    def _get_sample(self, elem, children=()):
         """Return the sample data as an instance of Sample class.
 
         """
@@ -159,6 +160,7 @@ class XMLParser(BaseParser):
         sample['all_threads'] = int(elem.get('na', 0))
         sample['assertion_results'] = self._get_assertion_results(elem)
         sample['bytes_received'] = int(elem.get('by', 0))
+        sample['children'] = tuple(children)
         sample['cookies'] = self._get_cookies(elem)
         sample['data_encoding'] = elem.get('de', '')
         sample['data_type'] = elem.get('dt', '')
@@ -190,9 +192,22 @@ class XMLParser(BaseParser):
         """Generator method which yields samples from the results.
 
         """
+        sample_started = False
+        sample_children = []
         for event, elem in self.context:
-            if event == 'end' and elem.tag == 'httpSample':
-                yield self._get_sample(elem)
+            if event == 'start' and elem.tag == 'sample':
+                sample_started = True
+                sample_children = []
+            elif event == 'end' and elem.tag == 'httpSample':
+                sample = self._get_sample(elem)
+                if sample_started:
+                    sample_children.append(sample)
+                else:
+                    yield sample
+            elif event == 'end' and elem.tag == 'sample':
+                sample = self._get_sample(elem, sample_children)
+                sample_started = False
+                yield sample
             self.root.clear()
 
 
@@ -243,6 +258,7 @@ class CSVParser(BaseParser):
         sample['all_threads'] = int(row.get('allThreads', 0))
         sample['assertion_results'] = self._get_assertion_results(row)
         sample['bytes_received'] = int(row.get('bytes', 0))
+        sample['children'] = ()
         sample['cookies'] = {}
         sample['data_encoding'] = row.get('Encoding', '')
         sample['data_type'] = row.get('dataType', '')
