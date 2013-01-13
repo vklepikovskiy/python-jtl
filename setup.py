@@ -9,7 +9,7 @@ setup(name='python-jtl',
       author='Victor Klepikovskiy',
       author_email='vklepikovskiy@gmail.com',
       url='http://code.google.com/p/python-jtl/',
-      license='LICENSE.txt',
+      license='GPLv3',
       packages=['tests'],
       py_modules=['jtl'],
      )
