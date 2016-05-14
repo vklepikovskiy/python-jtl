@@ -5,7 +5,7 @@ results (so called JTL files). JTL files can be either of XML or CSV (with or
 without the fieldnames) file format. jtl module supports both XML and CSV (with
 and without the fieldnames) file formats.
 
-The typical usage in general looks like this::
+The typical usage in general looks like this:
 
 ```
     from jtl import create_parser
