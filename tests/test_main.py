@@ -1,4 +1,4 @@
-# Copyright (C) 2012 Victor Klepikovskiy
+# Copyright (C) 2012-2016 Victor Klepikovskiy
 #
 # This file is part of python-jtl.
 #
